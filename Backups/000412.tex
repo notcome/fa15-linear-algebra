@@ -1,0 +1,38 @@
+\exercise{0}{4}{12}
+For two monotonically increasing continuous functions $g$ and $h$, such that the natural domains of both functions are $(a, b)$ and $(c, d)$ and that the natural domain of $g$ is the subset of the codomain of $h$, we have 
+$$\lim_{x \to c^+}h(x) \leq \lim_{x \to a^+}id(x) < \lim_{x \to b^-}id(x) \leq \lim_{x \to d^-}h(d)$$, where $id$ is the identity function.
+
+Let $e = \lim_{x \to a^+}h^{-1}(x)$ and $f = \lim_{x \to b^-}h^{-1}(x)$, $c \leq e < f \leq d$. For every $x$ such that $x < e$ or $x > f$, $(g \circ h)(x)$, or $g(h(x))$, is not defined. For every $x \in (e, f)$, there exists $y = (g \circ h)(x)$. That's to say, the natural domain of $g \circ h$ is $(e, f)$, or the inverse image of the natural domain of $g$ under $h$.
+
+Let $\mathbb{F} = \{X \to Y: X \in \mathcal{P}(\mathbb{R}), Y \in \mathcal{P}(\mathbb{R})\}$. A function \FunSS{G_f}{\mathbb{N}}{\mathbb{F}} can be defined as:
+$$G_f(x) = \left\{
+\begin{array}{lc}
+\ln                & x = 0\\
+\ln \circ G_f(x-1) & x > 0
+\end{array}
+\right.$$
+
+For every $x \in \mathbb{N}$, let $f = G_f(x)$. The natural domain $X$ of $\ln \circ f$ is the inverse image of the natural domain $\ln$ under $f$, because both $\ln$ and $f$ are monotonically increasing continuous functions. Since the natural domain of $\ln$ is $(0, \infty)$, $X = (f^{-1}(0), \infty)$.
+
+A function \FunSS{g}{\mathbb{N}}{\mathbb{N}} can be defined as:
+$$g(x) = \left\{
+\begin{array}{lc}
+1          & x = 0 \\
+e^{g(x-1)} & x > 0 
+\end{array}
+\right.$$.
+
+For every $x \in \mathbb{N}$, $(G_f(x))(g(x)) = 0$. This can be proven inductively: when $x = 0$, $(G_f(0))(g(0)) = \ln(1) = 0$; when $x > 0$, $(G_f(x))(g(x)) = (G_f(x-1) \circ \ln)(e^{g(x-1)}) = (G_f(x-1))(\ln(e^{g(x-1)})) = G_f(x-1)(g(x-1)).$ Therefore, the natural domain of $\ln \circ G_f(x)$ is $(g(x), \infty)$.
+
+\begin{enumerate}
+\item $\ln \circ \ln$
+
+Since $\ln \circ \ln = \ln \circ G_f(0)$, the natural domain of it is $(g(0), \infty)$, namely $(1, \infty)$.
+
+\item $\ln \circ \ln \circ \ln$
+
+Since $\ln \circ \ln \circ \ln = \ln \circ G_f(1)$, the natural domain of it is $(g(1), \infty)$, namely $(e, \infty)$.
+
+\item $\ln$ composed with itself $n$ times
+
+This function equals $\ln \circ G_f(n)$. Therefore, its natural domain is $(g(n), \infty)$.

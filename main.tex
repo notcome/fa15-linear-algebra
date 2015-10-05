@@ -1,0 +1,221 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{calc}
+\usepackage{tkz-euclide}
+
+
+% To reduce the possibility of being reached through Google.
+\def \TitleSubject{MATH}
+\def \TitleSeqNoA{3}
+\def \TitleSeqNoB{1}
+\def \TitleSeqId{A}
+\def \TitleSeq{\TitleSeqNoA\TitleSeqNoB\TitleSeqId}
+
+\title{\TitleSubject\ \TitleSeq\ Homework}
+\author{Minsheng Liu}
+
+\begin{document}
+
+\maketitle
+
+\newcommand \exercise[3]{
+  \setcounter{section}{#1}
+  \setcounter{subsection}{#2}
+  \setcounter{subsubsection}{{{#3}-1}}
+  \subsubsection{}}
+  
+\renewcommand{\theenumi}{\alph{enumi}}
+\newcommand \FunSS[3]{$#1 : #2 \to #3$}
+\newcommand \QED{$\square$}
+\newcommand \Proof{\textbf{Proof.}}
+
+\exercise{0}{2}{1}
+\begin{enumerate}
+\item There exists a prime number such that if you divide it by 4 you have a remainder of 1 and it is not the sum of two squares.
+
+\item There exists $x \in \mathbb{R}$ and $\epsilon > 0$ such that for all $\delta > 0$, there exists $y \in \mathbb{R}$, if $|y - x| < \delta$, then $|y^2 - x^2| \geq \epsilon$.
+
+\item There exists $\epsilon > 0$ such that for all $\delta > 0$, there exist $x, y \in \mathbb{R}$ such that if $|y - x| < \delta$, then $|y^2 - x^2| \geq \delta$.
+\end{enumerate}
+
+\exercise{0}{3}{1}
+\begin{enumerate}
+\item
+$\begin{aligned}[t]
+A * B    &= (E - A) \cap (E - B) = E - (A \cup B) \\
+A \cup B &= E - (E - (A \cup B)) \\
+         &= E - A * B \\
+         &= (E - A * B) \cap (E - A * B) \\
+         &= (A * B) * (A * B)
+\end{aligned}$
+
+\item
+$\begin{aligned}[t]
+A \cap B &= (E - (E - A)) \cap (E - (E - B)) \\
+         &= (E - A) * (E - B) \\
+         &= (A * A) * (B * B)
+\end{aligned}$
+
+\item
+$\begin{aligned}[t]
+E - A &= (E - A) \cap (E-A) \\
+      &= A * A
+\end{aligned}$
+\end{enumerate}
+
+\exercise{0}{4}{6}
+\begin{enumerate}
+\item
+$f$ can become one to one if it's domain is changed to $[0, \infty)$, namely, all nonnegative numbers. Then, for each $y \in [0, \infty)$, there is one and only one $x$ such that $y = f(x)$, which is $x = \sqrt{y}$.
+
+$f$ cannot become one to one by solely changing its codomain. As long as its codomain contains any number other than 0, say $y$, there always exist two possible $x$ such that $f(x) = y$, namely $\sqrt{y}$ and $-\sqrt{y}$. If its codomain was changed to the singleton set $\{0\}$, the domain will also be changed to $\{0\}$. Hence it's impossible to make it one to one by by solely changing its codomain.
+
+\item
+For any real number $x$, as long as both $x$ and $-x$ are removed from $f$'s domain, for $y \in [0, \infty), y = x^2$, there doesn't exist $x'$ of $f$'s domain such that $f(x') = y$, because both two roots of the equation $y = x^2$ are removed from $f$'s domain. Hence, $f$ becomes not onto.
+
+$f$ can become not onto if it's codomain is extended to contain negative real numbers. For every $y < 0$, there doesn't exist $x = \sqrt{y}$ such that $x$ is a real number.
+\end{enumerate}
+
+\exercise{0}{4}{8}
+\begin{enumerate}
+\item $f^{-1}(A \cap B) = f^{-1}(A) \cap f^{-1}(B)$.
+
+\Proof{} For every $x \in f^{-1}(A \cap B)$, there exists $y \in A \cap B$ such that $y = f(x)$. Because $y \in A$, $y \in B$, and $y = f(x)$, $x \in f^{-1}(A)$ and $x \in f^{-1}(B)$, or $x \in f^{-1}(A) \cap f^{-1}(B)$. Therefore, $f^{-1}(A \cap B) \subseteq f^{-1}(A) \cap f^{-1}(B)$.
+
+For every $x \in f^{-1}(A) \cap f^{-1}(B)$, $x \in f^{-1}(A)$ and $x \in f^{-1}(b)$; as a result, there exist $y \in A$ and $z \in B$ such that $y = z = f(x)$, or, $y \in A \cap B$. By definition, $x \in f^{-1}(A \cap B)$. So, $f^{-1}(A) \cap f^{-1}(B) \subseteq f^{-1}(A \cap B)$. Since two sets are subsets of each other, they are equal. \QED
+
+\item $f^{-1}(A \cup B) = f^{-1}(A) \cup f^{-1}(B)$.
+
+\Proof{} For every $x \in f^{-1}(A \cup B)$, there exists $y \in A \cup B$ such that $y = f(x)$. Because $y$ is an element of either $A$ or $B$ or both, $x$ is the element of $f^{-1}(A)$ and $x \in f^{-1}(B)$ or both, which means $x \in f^{-1}(A) \cup f^{-1}(B)$. Therefore, $f^{-1}(A \cup B) \subseteq f^{-1}(A) \cup f^{-1}(B)$.
+
+For every $x \in f^{-1}(A) \cup f^{-1}(B)$, $x \in f^{-1}(A)$ or $x \in f^{-1}(b)$ or both. If $x \in f^{-1}(A)$, there exists $y \in A$ such that $y = f(x)$; then, $y \in A \cup B$, $x \in f^{-1}(A \cup B)$ by definition. Similarly, if $x \in f^{-1}(B)$, $x$ will also be an element of $f^{-1}(A \cup B)$. So, $f^{-1}(A) \cup f^{-1}(B) \subseteq f^{-1}(A \cup B)$. Since two sets are subsets of each other, they are equal. \QED
+\end{enumerate}
+
+\exercise{0}{4}{10}
+\begin{enumerate}
+\item Let the function \FunSS{f}{B}{C} and \FunSS{g}{A}{B} be onto. Then the composition $f \circ g$ is onto. 
+
+\Proof{} For every $c \in C$: since \FunSS{f}{B}{C} is surjective, there exists $b \in B$ such that $f(b) = c$; since \FunSS{g}{A}{B} is surjective, there exists $a \in A$ such that $g(a) = b$. Therefore, for every $c \in C$, there exists $a \in A$ such that $(f \circ g)(a) = f(g(a)) = c$. Thus, $f \circ g$ is surjective, or onto. \QED
+
+\item Let the function \FunSS{f}{B}{C} and \FunSS{g}{A}{B} be one to one. Then the composition $f \circ g$ is one to one. 
+
+\Proof{} For every $c \in C$, since \FunSS{f}{B}{C} is injective, there exists at most one $b \in B$ such that $f(b) = c$; if such $b$ doesn't exist for this $c$, there doesn't exist $a \in A$ such that $f(g(a)) = c$; if such $b$ does exists, then since \FunSS{g}{A}{B} is also injective, there exists at most one $a \in A$ such that $g(a) = b$. Therefore, for every $c \in C$, there exists zero or one $a \in A$ such that $(f \circ g)(a) = f(g(a)) = c$. Thus, $f \circ g$ is injective, or one to one. \QED
+\end{enumerate}
+
+\exercise{0}{4}{12}
+Let $F$ be a sequence of functions:
+$$\begin{array}{rcl}
+F_0 &=& \ln \\
+F_1 &=& \ln \circ \ln \\
+F_2 &=& \ln \circ \ln \circ \ln \\
+F_3 &=& \ln \circ \ln \circ \ln \circ \ln \\
+&\vdots& \\
+F_n &=& \ln \text{composed with itself $n$ times}
+\end{array}$$
+
+Let $X_n$ be the (natural) domain of $F_{n}$. $X_{0}$ is the domain of $\ln$, namely $(0, \infty)$. For each $n \in \mathbb{N}$, $F_{n+1} = F_n \circ \ln$, $X_{n+1}$ is the intersection of the inverse image of $X_n$ under $\ln$ and $\ln$'s domain $(0, \infty)$. The inverse image of a set $X$ under $\ln$ is also the image of $X$ under the inverse function of $\ln$, namely $exp(x) = e^x$. Note that $exp$ is a monotonically increasing function.
+
+\begin{enumerate}
+\item $\ln \circ \ln = F_1 = F_0 \circ \ln$.
+
+$X_0 = (0, \infty)$, and its image under $exp$ is $(exp(0), exp(\infty)) = (1, \infty)$. The natural domain of this function is $X_1 = (1, \infty) \cap (0, \infty) = (1, \infty)$.
+
+\item $\ln \circ \ln \circ \ln = F_2 = F_1 \circ \ln$
+
+$X_1 = (1, \infty)$, and its image under $exp$ is $(exp(1), exp(\infty)) = (e, \infty)$. The natural domain of this function is $X_2 = (e, \infty) \cap (0, \infty) = (e, \infty)$.
+
+\item $\ln$ composed with itself $n$ times $= F_n = F_{n - 1} \circ \ln$
+
+A function \FunSS{ans}{\mathbb{Z}^+}{\mathbb{R}} can be defined as:
+$$ans(x) = \left\{
+\begin{array}{lc}
+1            & x = 1 \\
+e^{ans(x-1)} & x > 1 
+\end{array}
+\right.$$.
+
+Or tetration of $e$:
+$$ans(x) = {^{n}e} = \underbrace{e^{e^{\cdot^{\cdot^{e}}}}}_n$$
+
+Assume that for every positive integer $i$, $X_i = (ans(i), \infty)$. This can be proven inductively as $X_1 = (ans(1), \infty)$, $X_2 = (ans(2), \infty)$, and $X_i = (exp(ans(i-1)), exp(\infty)) \cap (0, \infty) = (ans(i), \infty)$. Therefore, the natural domain of $F_n$, or $\ln$ composed with itself $n$ times, is $X_n = (ans(n), \infty)$.
+\end{enumerate}
+
+\newcommand \vect[1]{\vec{\mathbf{#1}}}
+
+\exercise{1}{1}{1}
+All sketches are hand-drawn in the separate sketch paper.
+
+\begin{enumerate}
+\item 
+$
+\begin{bmatrix}1\\3\end{bmatrix}
++
+\begin{bmatrix}2\\1\end{bmatrix}=
+\begin{bmatrix}1+2\\3+1\end{bmatrix}=
+\begin{bmatrix}3\\4\end{bmatrix}
+$
+
+\item
+$
+2\begin{bmatrix}2\\4\end{bmatrix}=
+\begin{bmatrix}2 \times 2\\2 \times 4\end{bmatrix}=
+\begin{bmatrix}4\\8\end{bmatrix}
+$
+
+\item 
+$
+\begin{bmatrix}1\\3\end{bmatrix}
+-
+\begin{bmatrix}2\\1\end{bmatrix}=
+\begin{bmatrix}1-2\\3-1\end{bmatrix}=
+\begin{bmatrix}-1\\2\end{bmatrix}
+$
+
+\item
+$
+\begin{bmatrix}3\\2\end{bmatrix} + \vec{\mathbf{e}}_1=
+\begin{bmatrix}3\\2\end{bmatrix}
++
+\begin{bmatrix}1\\0\end{bmatrix}=
+\begin{bmatrix}3+1\\2+0\end{bmatrix}=
+\begin{bmatrix}4\\2\end{bmatrix}
+$
+\end{enumerate}
+
+\exercise{1}{1}{4}
+\begin{enumerate}
+\item The first trivial subspace is $V = \{\vec{\mathbf{0}}\}$, a singleton set containing only the zero vector. The second one is $V = \mathbb{R}^n$, namely the whole vector space itself.
+
+\item Such two elements exist, which can be proven geometrically, as shown in the figure. Picking two vectors $\vect{x} = \vect{OA}$ and $\vect{y} = \vect{OB}$ from $S_1$, it is obvious that $\vect{x} + \vect{y} = \vect{OC}$ is the diagonal of the parallelogram OACB. If $\vect{x} + \vect{y} \in S_1$, the sum vector must has the same length as $\vect{x}$ and $\vec{y}$, being the radius of the unit circle. Therefore, triangle ACO and triangle COB must be equilateral triangles. In other words, as long as angle AOB is 120 degrees, which is evidently possible, the sum $\vect{x} + \vect{y} \in S_1$. \QED
+
+\begin{figure}[h]
+\begin{center}
+\begin{tikzpicture}
+\tkzInit[xmax=2.1,ymax=2.1,xmin=-2.1,ymin=-2.1]
+\tkzDrawX[noticks]
+\tkzDrawY[noticks]
+\tkzDefPoint(0,0){O}
+\tkzDefPoint[label=above:$A$](-1,1.732){A}
+\tkzCalcLength[cm](O,A)
+\tkzGetLength{rOA}
+\tkzDefPoint(\rOA,0){B}
+\tkzDefPoint[label=above:$C$]({-1 + \rOA}, 1.732){C}
+\tkzDrawCircle[R](O,\rOA cm)
+\draw[thick,->] (O) -- (A);
+\draw[thick,->] (O) -- (B);
+\draw[thick,->] (O) -- (C);
+\tkzDrawSegments[postaction={decorate},dashed](A,C)
+\tkzDrawSegments[postaction={decorate},dashed](B,C)
+\tkzDrawPoints(O,A,B,C)
+\tkzLabelPoints(O,B)
+\end{tikzpicture}
+\end{center}
+\end{figure}
+\end{enumerate}
+
+\exercise{1}{1}{6}
+All sketches are hand-drawn in the separate sketch paper.
+
+\exercise{1}{1}{8}
+\end{document}
