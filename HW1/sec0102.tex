@@ -16,7 +16,7 @@
     \item Incompatible matrices: the first matrix has 2 columns while the second
           one has 3 rows.
 
-    \item \begin{align*}
+    \item $\begin{aligned}[t]
             \begin{xmatrix}
                1 & -1 &  1 \\
               -1 &  0 &  2 \\
@@ -37,7 +37,7 @@
               4 & -1 & -3 \\
               1 &  0 &  1
             \end{xmatrix}
-          \end{align*}
+          \end{aligned}$
 
     \item $\begin{xmatrix}7 & 1 \\ -1 & 0 \\ 2 & 3\end{xmatrix}
            \begin{xmatrix}5 \\ -4\end{xmatrix} =
@@ -74,17 +74,31 @@
 
 
 % 3, 5
-% ABBA = AB
+
 \begin{exercise}{8}
+  The only value of $a$ such that $AB = BA$ is $0$, as:
+  \medskip
+  
   $AB = \begin{xmatrix}1 & 1 \\ 1 & 0\end{xmatrix}
         \begin{xmatrix}1 & 0 \\ a & 1\end{xmatrix}
       = \begin{xmatrix}1 + a & 1 \\ 1 & 0\end{xmatrix}$
-
+  \medskip
+  
   $AB = \begin{xmatrix}1 & 0 \\ a & 1\end{xmatrix}
         \begin{xmatrix}1 & 1 \\ 1 & 0\end{xmatrix}
       = \begin{xmatrix}1 & 1 \\ 1 + a & a\end{xmatrix}$
-
-  It's obvious that $a = 0$.
+  \medskip
+  
+  $\left\{
+    \begin{aligned}
+      1 + a &= 1 \\
+          a &= 0
+    \end{aligned}
+  \right.\quad \Longrightarrow \quad a = 0$
 \end{exercise}
 
-% 10, 15, 16
+\begin{exercise}{10}
+  For any matrix
+\end{exercise}
+
+% 15, 16
