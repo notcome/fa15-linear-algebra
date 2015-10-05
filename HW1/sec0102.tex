@@ -72,23 +72,22 @@
   \end{enumerate}
 \end{exercise}
 
-
 % 3, 5
 
 \begin{exercise}{8}
   The only value of $a$ such that $AB = BA$ is $0$, as:
   \medskip
-  
+
   $AB = \begin{xmatrix}1 & 1 \\ 1 & 0\end{xmatrix}
         \begin{xmatrix}1 & 0 \\ a & 1\end{xmatrix}
       = \begin{xmatrix}1 + a & 1 \\ 1 & 0\end{xmatrix}$
   \medskip
-  
+
   $AB = \begin{xmatrix}1 & 0 \\ a & 1\end{xmatrix}
         \begin{xmatrix}1 & 1 \\ 1 & 0\end{xmatrix}
       = \begin{xmatrix}1 & 1 \\ 1 + a & a\end{xmatrix}$
   \medskip
-  
+
   $\left\{
     \begin{aligned}
       1 + a &= 1 \\
@@ -98,7 +97,58 @@
 \end{exercise}
 
 \begin{exercise}{10}
-  For any matrix
+  Follow the formula for the inverse of $2\times2$-matrix:
+
+  \begin{align*}
+    A^{-1} &= \frac{1}{a^2-0}\begin{xmatrix}a & -b\\0 & a\end{xmatrix} \\
+           &= \begin{xmatrix}
+                \frac{1}{a} & -\frac{b}{a} \\
+                          0 &  \frac{1}{a}
+              \end{xmatrix}
+  \end{align*}
 \end{exercise}
 
-% 15, 16
+\begin{exercise}{15}
+  Let $A = \begin{xmatrix}
+             1 & a & b \\
+             0 & 1 & c \\
+             0 & 0 & 1
+           \end{xmatrix}$,
+  and $B = \begin{xmatrix}
+             1 & x & y \\
+             0 & 1 & z \\
+             0 & 0 & 1
+           \end{xmatrix}$.
+  The product $AB =
+    \begin{xmatrix}
+      1 & x + a & y + az + b \\
+      0 &     1 &      z + c \\
+      0 &     0 &          1
+    \end{xmatrix} =
+    I_3 = \begin{xmatrix}1&0&0\\0&1&0\\0&0&1\end{xmatrix}$.
+  Then we have:
+
+  $\left\{
+    \begin{aligned}
+           x + a &= 0 \\
+      y + az + b &= 0 \\
+           z + c &= 0
+    \end{aligned}
+  \right.\quad \Longrightarrow \quad
+  \left\{
+    \begin{aligned}
+               x &= -a \\
+               z &= -c \\
+      y - ac + b &= 0
+    \end{aligned}
+  \right.\quad \Longrightarrow \quad
+  \left\{
+    \begin{aligned}
+      x &= -a     \\
+      y &= ac - b \\
+      z &= -c
+    \end{aligned}
+  \right.$
+\end{exercise}
+
+% 16
