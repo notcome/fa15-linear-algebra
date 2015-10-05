@@ -1,6 +1,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{calc}
+\usepackage{mathtools}
 
 % To reduce the possibility of being reached through Google.
 \def \TitleSubject{MATH}
@@ -27,9 +28,9 @@
   \setcounter{subsection}{#2}
 }
 \newenvironment{exercise}[1]{
-  \setcounter{subsubsection}{{{#3}-1}}
+  \setcounter{subsubsection}{{{#1}-1}}
   \subsubsection{}
-  }{}
+}{}
 
 % Sub-questions in this book using a, b, c, etc. as counters.
 \renewcommand \theenumi{\alph{enumi}}
