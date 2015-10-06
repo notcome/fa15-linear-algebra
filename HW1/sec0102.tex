@@ -72,7 +72,41 @@
   \end{enumerate}
 \end{exercise}
 
-% 3, 5
+\begin{exercise}{3}
+  \begin{enumerate}
+    \item $\begin{pmatrix}AB_{13}\\AB_{23}\end{pmatrix} =
+           \begin{xmatrix}1 & 2 & 0\\3 & 1 & -1\end{xmatrix}
+           \begin{pmatrix}1 \\ 2 \\ 3\end{pmatrix} =
+           \begin{pmatrix}1+4 \\ 3+2-3\end{pmatrix} =
+           \begin{pmatrix}5 \\ 2\end{pmatrix}$
+    \item $\begin{aligned}[t]
+            \begin{xmatrix}AB_{21} & AB_{22} & AB_{23}\end{xmatrix} &=
+            \begin{xmatrix}3 & 1 & -1\end{xmatrix}
+            \begin{xmatrix}
+              2 & 5 & 1 \\
+              1 & 4 & 2 \\
+              1 & 3 & 3
+            \end{xmatrix}
+            \\ &=
+            \begin{xmatrix}6 + 1 - 1 & 15 + 4 - 3 & 3 + 2 - 3\end{xmatrix}
+            \\ &=
+            \begin{xmatrix}6 & 16 & 2\end{xmatrix}
+          \end{aligned}$
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}{5}
+  Since $A$ is symmetric, $A = A^{\top}$.
+  
+  \begin{enumerate}
+    \item True. $B^{\top}A = B^{\top}A^{\top} = (AB)^{\top}$ \QED
+    \item True. $B^{\top}A^{\top} = (AB)^{\top} = (A^{\top}B)^{\top}$ \QED
+    \item False. $(A^{\top}B)^{\top} = B^{\top}A \neq BA$, 
+          since $B^{\top} = B$ doesn't hold if $B$ is not symmetric.
+    \item False. $(AB)^{\top} = B^{\top}A^{\top} \neq A^{\top}B^{\top}$, 
+          since $XY = YX$ iff $X$ is the inverse of $Y$.
+  \end{enumerate}
+\end{exercise}
 
 \begin{exercise}{8}
   The only value of $a$ such that $AB = BA$ is $0$, as:
@@ -119,15 +153,19 @@
              0 & 1 & z \\
              0 & 0 & 1
            \end{xmatrix}$.
-  The product $AB =
+  The product is
+  
+  $$AB =
     \begin{xmatrix}
       1 & x + a & y + az + b \\
       0 &     1 &      z + c \\
       0 &     0 &          1
     \end{xmatrix} =
-    I_3 = \begin{xmatrix}1&0&0\\0&1&0\\0&0&1\end{xmatrix}$.
+    I_3 = \begin{xmatrix}1&0&0\\0&1&0\\0&0&1\end{xmatrix}$$
+  
   Then we have:
-
+  \medskip
+  
   $\left\{
     \begin{aligned}
            x + a &= 0 \\
@@ -151,4 +189,11 @@
   \right.$
 \end{exercise}
 
-% 16
+\begin{exercise}{16}
+  From the definition of transpose and symmetric matrix,
+  it is obvious that $(A^{\top})^{\top} = A$,
+  and that if $A = A^{\top}$, then $A$ is symmetric.
+
+  For any matrix $A$, since $(A^{\top}A)^{\top} = A^{\top}(A^{\top})^{\top} = A^{\top}A$,
+  namely $A^{\top}A$ equal to its transpose, $A^{\top}A$ is symmetric. \QED
+\end{exercise}
