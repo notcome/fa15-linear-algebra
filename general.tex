@@ -14,18 +14,9 @@
   \author{Minsheng Liu}
 }
 
-% Generate exercise number for quick reference.
-\newcommand \exerciseOld[3]{
-  \setcounter{section}{#1}
-  \setcounter{subsection}{#2}
-  % It seems that in LaTeX \subsection starts from 0.
-  \setcounter{subsubsection}{{{#3}-1}}
-  \subsubsection{}
-}
-
 \newcommand \gotosection[2]{
   \setcounter{section}{#1}
-  \setcounter{subsection}{#2}
+  \setcounter{subsection}{{{#2}-1}}
 }
 \newenvironment{exercise}[1]{
   \setcounter{subsubsection}{{{#1}-1}}
