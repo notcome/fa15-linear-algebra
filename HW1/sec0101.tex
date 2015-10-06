@@ -1,0 +1,148 @@
+\gotosection{1}{1}
+\subsection{Points and vectors}
+
+\begin{exercise}{1}
+  All sketches are hand-drawn in the separate sketch paper.
+  
+  \begin{enumerate}
+  \item $\begin{bmatrix}1\\3\end{bmatrix} +
+         \begin{bmatrix}2\\1\end{bmatrix} =
+         \begin{bmatrix}1+2\\3+1\end{bmatrix} =
+         \begin{bmatrix}3\\4\end{bmatrix}$
+  \item $2\begin{bmatrix}2\\4\end{bmatrix} =
+         \begin{bmatrix}2 \times 2\\2 \times 4\end{bmatrix} =
+         \begin{bmatrix}4\\8\end{bmatrix}$
+
+  \item $\begin{bmatrix}1\\3\end{bmatrix} -
+         \begin{bmatrix}2\\1\end{bmatrix} =
+         \begin{bmatrix}1-2\\3-1\end{bmatrix} =
+         \begin{bmatrix}-1\\2\end{bmatrix}$
+
+  \item $\begin{bmatrix}3\\2\end{bmatrix} + \vec{\mathbf{e}}_1 =
+         \begin{bmatrix}3\\2\end{bmatrix} +
+         \begin{bmatrix}1\\0\end{bmatrix} =
+         \begin{bmatrix}3+1\\2+0\end{bmatrix}=
+         \begin{bmatrix}4\\2\end{bmatrix}$
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}{4}
+  \begin{enumerate}
+    \item The first trivial subspace is $V = \{\vec{\mathbf{0}}\}$, a singleton set containing only the zero       vector. The second one is $V = \mathbb{R}^n$, namely the whole vector space itself.
+    
+    \item Such two elements exist, which can be proven geometrically, as shown in the figure. Picking two vectors $\Vect{x} = \Vect{OA}$ and $\Vect{y} = \Vect{OB}$ from $S_1$, it is obvious that $\Vect{x} + \Vect{y} = \Vect{OC}$ is the diagonal of the parallelogram OACB. If $\Vect{x} + \Vect{y} \in S_1$, the sum vector must has the same length as $\Vect{x}$ and $\vec{y}$, being the radius of the unit circle. Therefore, triangle ACO and triangle COB must be equilateral triangles. In other words, as long as angle AOB is 120 degrees, which is evidently possible, the sum $\Vect{x} + \Vect{y} \in S_1$. \QED
+
+    \begin{figure}[h]
+      \begin{center}
+        \begin{tikzpicture}
+          \tkzInit[xmax=2.1,ymax=2.1,xmin=-2.1,ymin=-2.1]
+          \tkzDrawX[noticks]
+          \tkzDrawY[noticks]
+          \tkzDefPoint(0,0){O}
+          \tkzDefPoint[label=above:$A$](-1,1.732){A}
+          \tkzCalcLength[cm](O,A)
+          \tkzGetLength{rOA}
+          \tkzDefPoint(\rOA,0){B}
+          \tkzDefPoint[label=above:$C$]({-1 + \rOA}, 1.732){C}
+          \tkzDrawCircle[R](O,\rOA cm)
+          \draw[thick,->] (O) -- (A);
+          \draw[thick,->] (O) -- (B);
+          \draw[thick,->] (O) -- (C);
+          \tkzDrawSegments[postaction={decorate},dashed](A,C)
+          \tkzDrawSegments[postaction={decorate},dashed](B,C)
+          \tkzDrawPoints(O,A,B,C)
+          \tkzLabelPoints(O,B)
+        \end{tikzpicture}
+      \end{center}
+    \end{figure}
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}{6}
+  All sketches are hand-drawn in the separate sketch paper.
+\end{exercise}
+
+\begin{exercise}{8}
+  \begin{enumerate}
+    \item Let $\vec{F}$ be the vector field. It's obvious that outside the pipe the water speed is 0, namely for all $p \in \{\begin{pmatrix}x\\y\\z\end{pmatrix}\} : x^2 + y^2 > r^2, z \in \mathbb{R}$, $\vec{F}(p) = 0$.
+    \footnote{More precisely, $\vec{F}(p)$ is meaningless for those $p$, since there is no water. However, since vector field is a function whose domain is the whole vector space, I have to give it a default value. When grading please take into account that I have considered this.}
+    
+    For $p \in \{\begin{pmatrix}x\\y\\z\end{pmatrix}\} : x^2 + y^2 \leq r^2, z \in \mathbb{R}$, let $p = \begin{pmatrix}x\\y\\z\end{pmatrix}$. The axis of this pipe is the $z$-axis, or the point set $\{\begin{pmatrix}0\\0\\z\end{pmatrix} : z \in \mathbb{R}\}$. The distance between the axis and $p$ is $a = \sqrt{(x - 0)^2 + (y - 0)^2} = \sqrt{x^2 + y^2}$. The water is flowing in the direction of the $z$-axis, so $z$ equals the water speed. Therefore:
+    
+    $$\vec{F}(\begin{pmatrix}x\\y\\z\end{pmatrix}) =
+      \begin{bmatrix}0\\0\\r^2 - a^2\end{bmatrix} =
+      \begin{bmatrix}0\\0\\1 - a^2\end{bmatrix} =
+      \begin{bmatrix}0\\0\\1 - (x^2 + y^2)\end{bmatrix}$$
+    
+    \item Assuming that the flow's direction is anticlockwise. Since the axis of the pipe is the unit circle in the $(x, y)$-plane, the water speed in the direction of the $z$-axis is 0, and the direction of the flow is tangent to the pipe. For any point $p = \begin{pmatrix}x\\y\\0\end{pmatrix}$ on this unit circle, we can have a plane $P_p$ intersecting $p$ and the origin point. Let the point set of the pipe be $D$, and $P_p' = D \cap P_p$, then we have:
+    
+    \begin{enumerate}
+      \item Since $\begin{bmatrix}x\\y\\0\end{bmatrix}$ is a vector on $P_p$ and perpendicular
+      to $\vec{dir} = \begin{bmatrix}-y\\x\\0\end{bmatrix}$, $P_p$ is also perpendicular to
+      $\vec{dir}$. That is to say, for all $\begin{pmatrix}x'\\y'\\z'\end{pmatrix} \in P_p$, $\begin{pmatrix}x'\\y'\\z'\end{pmatrix}\begin{bmatrix}-y\\x\\0\end{bmatrix} = 0$.
+      
+      \item $\begin{bmatrix}-y\\x\\0\end{bmatrix}$ is also the direction of water flow for points
+      in $P_p'$, since the direction of flow is tangent to the pipe, which also means that
+      it is tangent to the unit circle. Therefore, the water velocity for a point
+      $q \in P_p'$, $\vec{F}(q) = \begin{bmatrix}v_x\\v_y\\0\end{bmatrix}$, is parallel to
+      $\begin{bmatrix}-y\\x\\0\end{bmatrix}$, or $\frac{v_x}{v_y} = \frac{-y}{x}$.
+    \end{enumerate}
+    
+    $D$ is the union of all sets $Px'$ where $x$ is a point of the unit circle:
+    
+    $$D = \cup\{\{(x_1, y_1, z_1): (x_1 - x)^2 + (y_1 - y)^2 + z_1^2 \leq r^2,
+                                   \begin{pmatrix}x_1\\y_1\\z_1\end{pmatrix}
+                                   \begin{bmatrix}-y\\x\\0\end{bmatrix} = 0
+                \} : x, y \in \mathbb{R}\}$$
+    
+    For every point $p \in D$, let $p = \begin{pmatrix}x\\y\\z\end{pmatrix}$ and
+    $\vec{F}(p) = \begin{bmatrix}v_x\\v_y\\0\end{bmatrix}$. From (b)
+    we know that:
+    \begin{align*}
+      \frac{v_x}{v_y} &= \frac{-y}{x} \\
+                  v_x &= -\frac{y}{x}v_y 
+    \end{align*}
+    Then,
+    \begin{align*}
+                         |\vec{F}(p)| &= r^2 - a^2 \\
+                 \sqrt{v_x^2 + v_y^2} &= r^2 - (x-1)^2 - (y-1)^2 \\
+      \sqrt{\frac{y^2+x^2}{x^2}v_y^2} &= r^2 - (x-1)^2 - (y-1)^2 \\
+        \frac{\sqrt{y^2 + x^2}}{x}v_y &= \pm (r^2 - (x-1)^2 - (y-1)^2) \\
+      v_y &= \pm \frac{x(r^2 - (x-1)^2 - (y-1)^2)}{\sqrt{y^2 + x^2}} \\ & \\
+      v_x &= \mp \frac{y(r^2 - (x-1)^2 - (y-1)^2)}{\sqrt{y^2 + x^2}}
+    \end{align*}
+    
+    Therefore, for $p = \begin{pmatrix}x\\y\\z\end{pmatrix}$,
+    
+    $$\vec{F}(p) =
+      \left\{
+      \begin{array}{lcr}
+        0, & \quad & p \notin D \\ & & \\
+        \begin{bmatrix}
+          -\frac{y(r^2 - (x-1)^2 - (y-1)^2)}{\sqrt{y^2 + x^2}} \\
+          \frac{x(r^2 - (x-1)^2 - (y-1)^2)}{\sqrt{y^2 + x^2}} \\
+          0
+        \end{bmatrix},
+           & \quad & p \in D
+      \end{array}
+      \right.$$
+      
+    One should note the assumption that the direction of flow is anticlockwise, which means
+    $v_y$ is negative and $v_y$ is positive when both $x$ and $y$ is positive. If the flow
+    is clockwise, the result should be ``inversed":
+    
+    $$\vec{F}(p) =
+      \left\{
+      \begin{array}{lcr}
+        0, & \quad & p \notin D \\ & & \\
+        \begin{bmatrix}
+          \frac{y(r^2 - (x-1)^2 - (y-1)^2)}{\sqrt{y^2 + x^2}} \\
+          -\frac{x(r^2 - (x-1)^2 - (y-1)^2)}{\sqrt{y^2 + x^2}} \\
+          0
+        \end{bmatrix},
+           & \quad & p \in D
+      \end{array}
+      \right.$$
+    
+  \end{enumerate}
+\end{exercise}

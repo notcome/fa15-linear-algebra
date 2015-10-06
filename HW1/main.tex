@@ -118,83 +118,8 @@ $$ans(x) = {^{n}e} = \underbrace{e^{e^{\cdot^{\cdot^{e}}}}}_n$$
 Assume that for every positive integer $i$, $X_i = (ans(i), \infty)$. This can be proven inductively as $X_1 = (ans(1), \infty)$, $X_2 = (ans(2), \infty)$, and $X_i = (exp(ans(i-1)), exp(\infty)) \cap (0, \infty) = (ans(i), \infty)$. Therefore, the natural domain of $F_n$, or $\ln$ composed with itself $n$ times, is $X_n = (ans(n), \infty)$.
 \end{enumerate}
 
-\newcommand \vect[1]{\vec{\mathbf{#1}}}
 
-\exerciseOld{1}{1}{1}
-All sketches are hand-drawn in the separate sketch paper.
-
-\begin{enumerate}
-\item
-$
-\begin{bmatrix}1\\3\end{bmatrix}
-+
-\begin{bmatrix}2\\1\end{bmatrix}=
-\begin{bmatrix}1+2\\3+1\end{bmatrix}=
-\begin{bmatrix}3\\4\end{bmatrix}
-$
-
-\item
-$
-2\begin{bmatrix}2\\4\end{bmatrix}=
-\begin{bmatrix}2 \times 2\\2 \times 4\end{bmatrix}=
-\begin{bmatrix}4\\8\end{bmatrix}
-$
-
-\item
-$
-\begin{bmatrix}1\\3\end{bmatrix}
--
-\begin{bmatrix}2\\1\end{bmatrix}=
-\begin{bmatrix}1-2\\3-1\end{bmatrix}=
-\begin{bmatrix}-1\\2\end{bmatrix}
-$
-
-\item
-$
-\begin{bmatrix}3\\2\end{bmatrix} + \vec{\mathbf{e}}_1=
-\begin{bmatrix}3\\2\end{bmatrix}
-+
-\begin{bmatrix}1\\0\end{bmatrix}=
-\begin{bmatrix}3+1\\2+0\end{bmatrix}=
-\begin{bmatrix}4\\2\end{bmatrix}
-$
-\end{enumerate}
-
-\exerciseOld{1}{1}{4}
-\begin{enumerate}
-\item The first trivial subspace is $V = \{\vec{\mathbf{0}}\}$, a singleton set containing only the zero vector. The second one is $V = \mathbb{R}^n$, namely the whole vector space itself.
-
-\item Such two elements exist, which can be proven geometrically, as shown in the figure. Picking two vectors $\vect{x} = \vect{OA}$ and $\vect{y} = \vect{OB}$ from $S_1$, it is obvious that $\vect{x} + \vect{y} = \vect{OC}$ is the diagonal of the parallelogram OACB. If $\vect{x} + \vect{y} \in S_1$, the sum vector must has the same length as $\vect{x}$ and $\vec{y}$, being the radius of the unit circle. Therefore, triangle ACO and triangle COB must be equilateral triangles. In other words, as long as angle AOB is 120 degrees, which is evidently possible, the sum $\vect{x} + \vect{y} \in S_1$. \QED
-
-\begin{figure}[h]
-\begin{center}
-\begin{tikzpicture}
-\tkzInit[xmax=2.1,ymax=2.1,xmin=-2.1,ymin=-2.1]
-\tkzDrawX[noticks]
-\tkzDrawY[noticks]
-\tkzDefPoint(0,0){O}
-\tkzDefPoint[label=above:$A$](-1,1.732){A}
-\tkzCalcLength[cm](O,A)
-\tkzGetLength{rOA}
-\tkzDefPoint(\rOA,0){B}
-\tkzDefPoint[label=above:$C$]({-1 + \rOA}, 1.732){C}
-\tkzDrawCircle[R](O,\rOA cm)
-\draw[thick,->] (O) -- (A);
-\draw[thick,->] (O) -- (B);
-\draw[thick,->] (O) -- (C);
-\tkzDrawSegments[postaction={decorate},dashed](A,C)
-\tkzDrawSegments[postaction={decorate},dashed](B,C)
-\tkzDrawPoints(O,A,B,C)
-\tkzLabelPoints(O,B)
-\end{tikzpicture}
-\end{center}
-\end{figure}
-\end{enumerate}
-
-\exerciseOld{1}{1}{6}
-All sketches are hand-drawn in the separate sketch paper.
-
-\exerciseOld{1}{1}{8}
-
+\input{sec0101}
 \input{sec0102}
+
 \end{document}
