@@ -74,22 +74,29 @@
 
 \begin{exercise}{8}
   \begin{enumerate}
-    \item Let $\vec{F}$ be the vector field. It's obvious that outside the pipe the water speed is 0, namely for all $p \in \{\begin{pmatrix}x\\y\\z\end{pmatrix}\} : x^2 + y^2 > r^2, z \in \mathbb{R}$, $\vec{F}(p) = 0$.
+    \item Suppose the axis of the pipe is the point set $\{\begin{pmatrix}x_0\\y_0\\z_0\end{pmatrix}: z_0 \in \mathbb{R}\}$.
+    Let $\vec{F}$ be the vector field. It's obvious that outside the pipe the water speed is 0, namely for all $p \in \{\begin{pmatrix}x\\y\\z\end{pmatrix} : (x-x_0)^2 + (y-y_0)^2 > r^2, z \in \mathbb{R}\}$, $\vec{F}(p) = 0$.
     \footnote{More precisely, $\vec{F}(p)$ is meaningless for those $p$, since there is no water. However, since vector field is a function whose domain is the whole vector space, I have to give it a default value. When grading please take into account that I have considered this.}
     
-    For $p \in \{\begin{pmatrix}x\\y\\z\end{pmatrix}\} : x^2 + y^2 \leq r^2, z \in \mathbb{R}$, let $p = \begin{pmatrix}x\\y\\z\end{pmatrix}$. The axis of this pipe is the $z$-axis, or the point set $\{\begin{pmatrix}0\\0\\z\end{pmatrix} : z \in \mathbb{R}\}$. The distance between the axis and $p$ is $a = \sqrt{(x - 0)^2 + (y - 0)^2} = \sqrt{x^2 + y^2}$. The water is flowing in the direction of the $z$-axis, so $z$ equals the water speed. Therefore:
+    For $p \in \{\begin{pmatrix}x\\y\\z\end{pmatrix}\} : (x-x_0)^2 + (y-y_0)^2 \leq r^2, z \in \mathbb{R}$, let $p = \begin{pmatrix}x\\y\\z\end{pmatrix}$, the distance between the axis and $p$ is $a = \sqrt{(x - x_0)^2 + (y - y_0)^2}$. The water is flowing in the direction of the $z$-axis, so $z$ equals the water speed. Therefore:
     
     $$\vec{F}(\begin{pmatrix}x\\y\\z\end{pmatrix}) =
       \begin{bmatrix}0\\0\\r^2 - a^2\end{bmatrix} =
       \begin{bmatrix}0\\0\\1 - a^2\end{bmatrix} =
-      \begin{bmatrix}0\\0\\1 - (x^2 + y^2)\end{bmatrix}$$
+      \begin{bmatrix}0\\0\\1 - (x-x_0)^2 - (y-y_0)^2\end{bmatrix}$$
     
-    \item Assuming that the flow's direction is anticlockwise. Since the axis of the pipe is the unit circle in the $(x, y)$-plane, the water speed in the direction of the $z$-axis is 0, and the direction of the flow is tangent to the pipe. For any point $p = \begin{pmatrix}x\\y\\0\end{pmatrix}$ on this unit circle, we can have a plane $P_p$ intersecting $p$ and the origin point. Let the point set of the pipe be $D$, and $P_p' = D \cap P_p$, then we have:
+    \item Assuming that the flow's direction is anticlockwise. Since the axis of
+    the pipe is the unit circle $S_2$ in the $(x, y)$-plane, the water speed in
+    the direction of the $z$-axis is 0, and the direction of the flow is tangent
+    to the pipe. For any point $p = \begin{pmatrix}x\\y\\0\end{pmatrix} \in S_2$
+    , we can have a plane $P_p$ intersecting $p$ and the origin point. Let the
+    point set of the pipe be $D$, and $P_p' = D \cap P_p$, then we have:
     
     \begin{enumerate}
       \item Since $\begin{bmatrix}x\\y\\0\end{bmatrix}$ is a vector on $P_p$ and perpendicular
       to $\vec{dir} = \begin{bmatrix}-y\\x\\0\end{bmatrix}$, $P_p$ is also perpendicular to
-      $\vec{dir}$. That is to say, for all $\begin{pmatrix}x'\\y'\\z'\end{pmatrix} \in P_p$, $\begin{pmatrix}x'\\y'\\z'\end{pmatrix}\begin{bmatrix}-y\\x\\0\end{bmatrix} = 0$.
+      $\vec{dir}$. That is to say, for all $\begin{pmatrix}x'\\y'\\z'\end{pmatrix} \in P_p$,
+      $\begin{pmatrix}x'\\y'\\z'\end{pmatrix}\begin{bmatrix}-y\\x\\0\end{bmatrix} = 0$.
       
       \item $\begin{bmatrix}-y\\x\\0\end{bmatrix}$ is also the direction of water flow for points
       in $P_p'$, since the direction of flow is tangent to the pipe, which also means that
@@ -98,12 +105,12 @@
       $\begin{bmatrix}-y\\x\\0\end{bmatrix}$, or $\frac{v_x}{v_y} = \frac{-y}{x}$.
     \end{enumerate}
     
-    $D$ is the union of all sets $Px'$ where $x$ is a point of the unit circle:
-    
-    $$D = \cup\{\{(x_1, y_1, z_1): (x_1 - x)^2 + (y_1 - y)^2 + z_1^2 \leq r^2,
-                                   \begin{pmatrix}x_1\\y_1\\z_1\end{pmatrix}
-                                   \begin{bmatrix}-y\\x\\0\end{bmatrix} = 0
-                \} : x, y \in \mathbb{R}\}$$
+    $D$ is the union of all sets $Pq'$ where $q$ is a point of the unit circle $S_2$:
+
+    $$D = \bigcup\limits_{(x, y, 0) \in S_2}
+            \{(x_1, y_1, z_1): (x_1 - x)^2 + (y_1 - y)^2 + z_1^2 \leq r^2,
+                               \begin{pmatrix}x_1\\y_1\\z_1\end{pmatrix}
+                               \begin{bmatrix}-y\\x\\0\end{bmatrix} = 0\}$$
     
     For every point $p \in D$, let $p = \begin{pmatrix}x\\y\\z\end{pmatrix}$ and
     $\vec{F}(p) = \begin{bmatrix}v_x\\v_y\\0\end{bmatrix}$. From (b)
@@ -112,27 +119,34 @@
       \frac{v_x}{v_y} &= \frac{-y}{x} \\
                   v_x &= -\frac{y}{x}v_y 
     \end{align*}
+    
+    Next, we need to figure out what $a$ is. One way to do it is to omit the $z$
+    -component for now, and figure the distance $a'$ between the axis and $p$'s
+    projection $p'$ on $(x, y)$-plane, which is also the difference between the
+    distance from the axis to the origin point and that from $p'$ to the origin
+    point: $a' = \sqrt{x^2 + y^2} - 1$. Obviously
+    $$a^2 = a'^2 + z^2 = (\sqrt{x^2 + y^2} - 1)^2 + z^2$$
+
+
+    \def \tmp{(\sqrt{x^2 + y^2} - 1)^2 - z^2}
     Then,
     \begin{align*}
                          |\vec{F}(p)| &= r^2 - a^2 \\
-                 \sqrt{v_x^2 + v_y^2} &= r^2 - (x-1)^2 - (y-1)^2 \\
-      \sqrt{\frac{y^2+x^2}{x^2}v_y^2} &= r^2 - (x-1)^2 - (y-1)^2 \\
-        \frac{\sqrt{y^2 + x^2}}{x}v_y &= \pm (r^2 - (x-1)^2 - (y-1)^2) \\
-      v_y &= \pm \frac{x(r^2 - (x-1)^2 - (y-1)^2)}{\sqrt{y^2 + x^2}} \\ & \\
-      v_x &= \mp \frac{y(r^2 - (x-1)^2 - (y-1)^2)}{\sqrt{y^2 + x^2}}
+                 \sqrt{v_x^2 + v_y^2} &= r^2 - \tmp \\
+      \sqrt{\frac{y^2+x^2}{x^2}v_y^2} &= r^2 - \tmp \\
+        \frac{\sqrt{y^2 + x^2}}{x}v_y &= \pm (r^2 - \tmp) \\
+      v_y &= \pm \frac{x(r^2 - \tmp)}{\sqrt{y^2 + x^2}} \\ & \\
+      v_x &= \mp \frac{y(r^2 - \tmp)}{\sqrt{y^2 + x^2}}
     \end{align*}
     
-    Therefore, for $p = \begin{pmatrix}x\\y\\z\end{pmatrix}$,
+    With a bit simplification, for $p = \begin{pmatrix}x\\y\\z\end{pmatrix}$, we have
     
     $$\vec{F}(p) =
       \left\{
       \begin{array}{lcr}
         0, & \quad & p \notin D \\ & & \\
-        \begin{bmatrix}
-          -\frac{y(r^2 - (x-1)^2 - (y-1)^2)}{\sqrt{y^2 + x^2}} \\
-          \frac{x(r^2 - (x-1)^2 - (y-1)^2)}{\sqrt{y^2 + x^2}} \\
-          0
-        \end{bmatrix},
+        \frac{r^2 - \tmp}{\sqrt{y^2 + x^2}}
+        \begin{bmatrix}-y\\x\\0\end{bmatrix},
            & \quad & p \in D
       \end{array}
       \right.$$
@@ -145,11 +159,8 @@
       \left\{
       \begin{array}{lcr}
         0, & \quad & p \notin D \\ & & \\
-        \begin{bmatrix}
-          \frac{y(r^2 - (x-1)^2 - (y-1)^2)}{\sqrt{y^2 + x^2}} \\
-          -\frac{x(r^2 - (x-1)^2 - (y-1)^2)}{\sqrt{y^2 + x^2}} \\
-          0
-        \end{bmatrix},
+        \frac{r^2 - \tmp}{\sqrt{y^2 + x^2}}
+        \begin{bmatrix}y\\-x\\0\end{bmatrix},
            & \quad & p \in D
       \end{array}
       \right.$$
