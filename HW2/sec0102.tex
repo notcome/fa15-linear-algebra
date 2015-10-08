@@ -1,0 +1,61 @@
+\gotosection{1}{2}
+\subsection{Introducing the actors: matrices}
+
+\begin{exercise}{17}
+  \begin{enumerate}
+    \item
+    $$A_T = \begin{xmatrix}
+              0 & 1 & 1 \\
+              1 & 0 & 1 \\
+              1 & 1 & 0
+            \end{xmatrix}$$
+            
+    $$A_S = \begin{xmatrix}
+              0 & 1 & 0 & 1 \\
+              1 & 0 & 1 & 0 \\
+              0 & 1 & 0 & 1 \\
+              1 & 0 & 1 & 0
+            \end{xmatrix}$$
+            
+    Note: I label the square's vertexes in the same order as a person draws the square in one stroke.
+    
+    \item
+    $$A_T^5 = (A_T^2)^2A_T
+            = \begin{xmatrix}
+                 2 & 1 & 1 \\
+                 1 & 2 & 1 \\
+                 1 & 1 & 2
+               \end{xmatrix}^2A_T
+            = \begin{xmatrix}
+                 6 & 5 & 5 \\
+                 5 & 6 & 5 \\
+                 5 & 5 & 6
+               \end{xmatrix}A_T
+            = \begin{xmatrix}
+                 10 & 11 & 11 \\
+                 11 & 11 & 11 \\
+                 11 & 10 & 10
+               \end{xmatrix}$$
+               
+    $$A_S^5 = \begin{xmatrix}
+                2 & 0 & 2 & 0 \\
+                0 & 2 & 0 & 2 \\
+                2 & 0 & 2 & 0 \\
+                0 & 2 & 0 & 2
+              \end{xmatrix}^2A_S
+            = \begin{xmatrix}
+                8 & 0 & 8 & 0 \\
+                0 & 8 & 0 & 8 \\
+                8 & 0 & 8 & 0 \\
+                0 & 8 & 0 & 8
+              \end{xmatrix}A_S
+            = \begin{xmatrix}
+                 0 & 16 &  0 & 16 \\
+                16 &  0 & 16 &  0 \\
+                 0 & 16 &  0 & 16 \\
+                16 &  0 & 16 &  0
+              \end{xmatrix}$$
+              
+    Each diagonal entry shows how many possible routes do there exist to go from that vertex to itself.
+  \end{enumerate}
+\end{exercise}
