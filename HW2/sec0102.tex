@@ -57,5 +57,85 @@
               \end{xmatrix}$$
               
     Each diagonal entry shows how many possible routes do there exist to go from that vertex to itself.
+    
+    \item Let $xy(n) = A^n{xy}$, or how many possible solutions of going from $x$ to $y$ in $n$ steps.
+          Assigning the three vertexes of the triangle to $a, b, c$ randomly, one have:
+          $$\left\{
+            \begin{aligned}
+              aa(n+1) = ab(n) + ac(n) \\
+              ab(n+1) = aa(n) + ac(n) \\
+              ac(n+1) = aa(n) + ab(n)
+            \end{aligned}
+          \right.$$
+          
+          , which can be derived using both the geometrical method and from the matrix multiplication. We need to prove $ab(n) = ac(n)$ and $|aa(n) - ab(n)| = 1$.
+          
+          First, we have the base case:
+          
+          $$\left\{
+            \begin{aligned}
+              aa(1) = 0 \\
+              ab(1) = 1 \\
+              ac(1) = 1
+            \end{aligned}
+          \right.$$
+          
+          $ab(1) = ac(1)$, and $|aa(1) - ab(1)| = 1$. Then, using the induction hypothesis, we have $ab(n+1) = aa(n) + ac(n) = aa(n) + ab(n) = ac(n+1)$, and,
+          
+          \begin{align*}
+            |aa(n+1) - ab(n+1)| &= |2ab(n) - (ab(n) + aa(n))| \\
+                                &= |ab(n) - aa(n)| \\
+                                &= 1
+          \end{align*}
+          
+          This completes the proof. \QED
+    
+    \item Label the square's vertexes $a, b, c, d$ in the same order as a person draws the square in one stroke. Assume that the route starts from $a$. With only one step, the route must end in $b$ or $d$. With two steps, the route must end in $a$ or $c$. With three steps, the route must end in $b$ or $d$, again. This forms a cycle: in odd steps, the route must end in $b$ or $d$; in even steps, the route must end in $a$ or $c$. In the matrix's terminology, this means that half entries are nonzero while the rest are zero. \QED
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}{20}
+  \begin{enumerate}
+    \item $z_1 + z_2 = x_1 + iy_1 + x_2 + iy_2 = (x_1 + x_2) + i(y_1 + y_2).$ Therefore, $M_{z_1 + z_2} = \begin{xmatrix}
+                        x_1 + x_2 & y_1 + y_2 \\
+                       -y_1 - y_2 & x_1 + x_2
+                     \end{xmatrix} =
+                     \begin{xmatrix}x_1 & y_1 \\ -y_1 & x_1\end{xmatrix} +
+                     \begin{xmatrix}x_2 & y_2 \\ -y_2 & x_2\end{xmatrix} =
+                     M_{z_1} + M_{z_2}$. \QED
+                     
+    \item $M_{z_1}M_{z_2} = \begin{xmatrix}x_1 & y_1 \\ -y_1 & x_1\end{xmatrix}
+                            \begin{xmatrix}x_2 & y_2 \\ -y_2 & x_2\end{xmatrix}
+                          = \begin{xmatrix}
+                               x_1x_2 - y_1y_2 &  x_1y_2 + y_1x_2 \\
+                              -y_1x_2 - x_1y_2 & -y_1y_2 + x_1x_2
+                            \end{xmatrix}$.
+          The product matrix is associated with $x_1x_2 - y_1y_2 + i(x_1y_2 + y_1x_2) = x_1x_2 + iy_1iy_2 + x_1iy_2 + x_2iy_1 = (x_1 + iy_1)(x_2 + iy_2)$. Since this association is bijective, we have $M_{z_1}M_{z_2} = M_{z_1z_2}$. \QED
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}{23}
+  \begin{enumerate}
+    \item $\begin{xmatrix}
+            a & 1 & 0 \\
+            b & 0 & 1
+          \end{xmatrix}
+          \begin{xmatrix}
+            0 & 0 \\
+            1 & 0 \\
+            0 & 1
+          \end{xmatrix} =
+          \begin{xmatrix}
+            1 & 0 \\
+            0 & 1
+          \end{xmatrix} = I_2$
+          
+    \item Suppose there exists $B$ such that $AB = I_3$. Let $I = I_3$.
+          $I_{11} = 1$, $I_{11} = A_{11}B_{11} + A_{12}B_{12} = 0$, and $0 \neq 1$.
+          Therefore, A does not have a right inverse.
+          
+    \item Let $A$ be the matrix in (a). Suppose $B$ be a left inverse of $A$, we have:
+          $$BA = I_3 = I_3^{\top} = (BA)^{\top} = A^{\top}B^{\top}$$
+          Since there is infinitely many possible $B$s, $A^{\top}$ has infinitely many right inverses $B^{\top}$.
   \end{enumerate}
 \end{exercise}
