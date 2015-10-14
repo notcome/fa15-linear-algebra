@@ -38,13 +38,14 @@
   Suppose $T$ is linear. Due to the linearity:
 
   \begin{align*}
-    T(\begin{xmatrix}2 \\ -1 \\ 4\end{xmatrix}) &= T(2\Vect{e}_1 - \Vect{e}_2 + 4\Vect{e}_3) \\
-                                                &= 2T(\Vect{e}_1) - T(\Vect{e}_2) + 4T(\Vect{e}_3) \\
-                                                &= 2\begin{xmatrix}2 \\ 1 \\ 1\end{xmatrix} -
-                                                    \begin{xmatrix}1 \\ 2 \\ 1\end{xmatrix} +
-                                                   4\begin{xmatrix}1 \\ 0 \\ 1\end{xmatrix}
-                                                &=  \begin{xmatrix}7 \\ 0 \\ 5\end{xmatrix}
-                                                \neq\begin{xmatrix}7 \\ 0 \\ 4\end{xmatrix}
+    T(\begin{xmatrix}2 \\ -1 \\ 4\end{xmatrix})
+      &= T(2\Vect{e}_1 - \Vect{e}_2 + 4\Vect{e}_3) \\
+      &= 2T(\Vect{e}_1) - T(\Vect{e}_2) + 4T(\Vect{e}_3) \\
+      &= 2\begin{xmatrix}2 \\ 1 \\ 1\end{xmatrix} -
+          \begin{xmatrix}1 \\ 2 \\ 1\end{xmatrix} +
+         4\begin{xmatrix}1 \\ 0 \\ 1\end{xmatrix} =
+          \begin{xmatrix}7 \\ 0 \\ 5\end{xmatrix}
+      \neq\begin{xmatrix}7 \\ 0 \\ 4\end{xmatrix}
   \end{align*}
 
   Therefore $T$ is not linear.
@@ -66,10 +67,73 @@
 \end{exercise}
 
 \begin{exercise}{18}
+  All sketches are hand-drawn in the separate sketch paper.
 \end{exercise}
 
 \begin{exercise}{19}
+  \begin{enumerate}
+    \item Let $A * B$ be the \textit{Jordan product} of $A$ and $B$. Since matrix addition is commutative, we have $A * B = \frac{AB + BA}{2} = \frac{BA + AB}{2} = B * A$. Hence the product is commutative. \QED
+    \item $\begin{aligned}[t]
+        A * (B * C) &= \frac{1}{2}(A\frac{BC + CB}{2} + \frac{BC + CB}{2}A) \\
+                            &= \frac{1}{4}(A(BC+CB) + (BC+CB)A) \\
+                            &= \frac{1}{4}(ABC+ACB+BCA+CBA) \\
+        (A * B) * C &= \frac{1}{4}(CAB+CBA+ABC+BAC)
+      \end{aligned}$
+      
+      $A * (B * C) - (A * B) * C = \frac{1}{4}(ACB+BCA-CAB-BAC) \neq 0$.
+      \footnote{For example, let
+                $A = \begin{xmatrix}0&1\\1&0\end{xmatrix},
+                B = \begin{xmatrix}0&1\\1&0\end{xmatrix},
+                C = \begin{xmatrix}1&2\\3&4\end{xmatrix}$,
+                $ACB+BCA-CAB-BAC = \begin{xmatrix}6&2\\-2&-6\end{xmatrix}$.}
+      Hence the two products are not equal, and the product is not associative. \QED
+  \end{enumerate}
 \end{exercise}
 
 \begin{exercise}{20}
+  For any $x = a_1+ib_1, y = a_2+ib_2$, and real numbers $m, n$.
+  \def \Re{\mathrm{Re}}
+  \def \C{c}
+  \def \Mw{m_w}
+  
+  \begin{enumerate}
+    \item $\begin{aligned}[t]
+            \Re(mx+ny) &= \Re(ma_1+mib_1+na_2+nib_2) \\
+                       &= ma_1 + na_2 = m\Re(a_1+ib_1) + n\Re(a_2 + ib_2) \\
+                       &= m\Re(x) + n\Re(y)
+          \end{aligned}$
+                       
+          $[\Re] = \begin{xmatrix}1 & 0\end{xmatrix}$.
+          
+    \item $\begin{aligned}[t]
+            \Im(mx+ny) &= \Im(ma_1+mib_1+na_2+nib_2) \\
+                       &= mib_1 + nib_2 = m\Im(a_1+ib_1) + n\Im(a_2 + ib_2) \\
+                       &= m\Im(x) + n\Im(y)
+          \end{aligned}$
+                       
+          $[\Im] = \begin{xmatrix}0 & 1\end{xmatrix}$.
+          
+    \item $\begin{aligned}[t]
+            \C(mx+ny) &= \C(ma_1+mib_1+na_2+nib_2) \\
+                      &= ma_1-mib_1+na_2-nib_2 \\
+                      &= m \cdot \C(a_1+ib_1)+n \cdot \C(a_2+ib_2) \\
+                      &= m \cdot \C(x) + n \cdot \C(y)
+          \end{aligned}$
+          
+          $[\C] = \begin{xmatrix}1 & 0 \\ 0 & -1\end{xmatrix}$.
+          
+    \item $\begin{aligned}[t]
+            \Mw(mx+ny) &= \Mw(ma_1+mib_1+na_2+nib_2) \\
+                       &= (u+iv)(ma_1+mib_1+na_2+nib_2) \\
+                       &= m(u+iv)(a_1+ib_1) + n(u+iv)(a_2+ib_2) \\
+                       &= m \cdot \Mw(a_1+ib_1) + n \cdot \Mw(a_2+ib_2) \\
+                       &= m \cdot \Mw(x) + n \cdot \Mw(y)
+          \end{aligned}$
+          
+          $[\Mw]\cdot \Vect{e}_1 = (u + iv) \cdot 1 
+                                 = \begin{xmatrix}u\\v\end{xmatrix} \\$
+          $[\Mw]\cdot \Vect{e}_2 = (u + iv) \cdot i = iu - v
+                                 = \begin{xmatrix}-v\\u\end{xmatrix} \\$
+          $[\Mw] = \begin{xmatrix}u & -v\\v & u\end{xmatrix}$
+  \end{enumerate}
 \end{exercise}
