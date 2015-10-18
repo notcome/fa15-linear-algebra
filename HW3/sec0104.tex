@@ -1,22 +1,128 @@
+\gotosection{1}{4}
+\subsection{The geometry of $\mathbb{R}^n$}
+
 \begin{exercise}{3}
   \begin{enumerate}
-    \item Let $\Vect{x} = \begin{xmatrix}0\\1\\4\end{xmatrix}$:
-          $$\frac{\Vect{x}}{|\Vect{x}|}=
-            \frac{\Vect{x}}{\sqrt{17}}=
-            \begin{xmatrix}0\\\frac{1}{\sqrt{17}}\\\frac{4}{\sqrt{17}}\end{xmatrix}$$
+    \item Let $\Vect{x} = \begin{bmatrix}0\\1\\4\end{bmatrix}$,
+          $\frac{\Vect{x}}{|\Vect{x}|}=
+           \frac{\Vect{x}}{\sqrt{17}}=
+           \begin{bmatrix}0\\\frac{1}{\sqrt{17}}\\\frac{4}{\sqrt{17}}\end{bmatrix}$
 
-    \item Let $\Vect{x} = \begin{xmatrix}-3\\7\end{xmatrix}$:
-          $$\frac{\Vect{x}}{|\Vect{x}|}=
-            \frac{\Vect{x}}{\sqrt{58}}=
-            \begin{xmatrix}-\frac{3}{\sqrt{58}}\\\frac{7}{\sqrt{58}}\end{xmatrix}$$
+    \item Let $\Vect{x} = \begin{bmatrix}-3\\7\end{bmatrix}$,
+          $\frac{\Vect{x}}{|\Vect{x}|}=
+           \frac{\Vect{x}}{\sqrt{58}}=
+           \begin{bmatrix}-\frac{3}{\sqrt{58}}\\\frac{7}{\sqrt{58}}\end{bmatrix}$
 
-    \item Let $\Vect{x} = \begin{xmatrix}\sqrt{2}\\-2\\-5\end{xmatrix}$:
-          $$\frac{\Vect{x}}{|\Vect{x}|}=
-            \frac{\Vect{x}}{\sqrt{31}}=
-            \begin{xmatrix}
-              \sqrt{\frac{2}{31}} \\
-              -\frac{2}{\sqrt{31}} \\
-              -\frac{5}{\sqrt{31}}
-            \end{xmatrix}$$
+    \item Let $\Vect{x} = \begin{bmatrix}\sqrt{2}\\-2\\-5\end{bmatrix}$,
+          $\frac{\Vect{x}}{|\Vect{x}|}=
+           \frac{\Vect{x}}{\sqrt{31}}=
+           \begin{bmatrix}
+             \sqrt{\frac{2}{31}} \\
+             -\frac{2}{\sqrt{31}} \\
+             -\frac{5}{\sqrt{31}}
+           \end{bmatrix}$
   \end{enumerate}
+\end{exercise}
+
+\begin{exercise}{5}
+  \begin{enumerate}
+    \item $cos(\theta) = \frac{1}{\sqrt{3}}$, $\theta = \arccos{1}{\sqrt{3}}$.
+    \item $cos(\theta) = 0$, $\theta = \frac{\pi}{2}$.
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}{7}
+  \begin{enumerate}
+    \item $\det(M) = 1$, $M^{-1} = \begin{xmatrix}0&1\\-1&2\end{xmatrix}$.
+    \item $\det(M) = 0$, $M^{-1}$ doesn't exist.
+    \item $\det(M) = ad$, if $a, d \neq 0$, $M^{-1} = \frac{1}{ad}\begin{xmatrix}d&-b\\0&a\end{xmatrix}$.
+    \item $\det(M) = 0$, $M^{-1}$ doesn't exist.
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}{8}
+  \begin{enumerate}
+    \item -4
+    \item $adf$
+    \item $adg - cbg$
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}{10}
+\end{exercise}
+
+\begin{exercise}{13}
+  First, we can prove that for any
+    $\Vect{a} = \begin{xmatrix}a_1\\a_2\\a_3\end{xmatrix},
+     \Vect{b} = \begin{xmatrix}b_1\\b_2\\b_3\end{xmatrix}$ and $x, y \in \mathbb{R}$, $(x\Vect{a}) \times y\Vect{b} = xy(\Vect{a} \times \Vect{b})$:
+  
+  $$(x\Vect{a}) \times y\Vect{b} =
+    \begin{xmatrix}
+       xa_2yb_3 - xa_3yb_2 \\
+      -xa_1yb_3 + xa_3yb_1 \\
+       xa_1yb_2 - xa_2yb_1
+    \end{xmatrix} = xy
+    \begin{xmatrix}
+       a_2b_3 - a_3b_2 \\
+      -a_1b_3 + a_3b_1 \\
+       a_1b_2 - a_2b_1
+    \end{xmatrix} = xy(\Vect{a} \times \Vect{b})$$
+    
+  For two vectors $\Vect{v}_1$, $\Vect{v}_2$ pointing in the same direction, they can be written as $n_1\Vect{u}$ and $n_2\Vect{u}$, respectively. Let $u_1, u_2, u_3$ be the three components of $\Vect{u}$, we have:
+
+  $$\Vect{v}_1 \times \Vect{v}_2 = (n_1n_2) \Vect{u} \times \Vect{u} = (n_1n_2)
+    \begin{xmatrix}
+       u_2u_3 - u_3u_2 \\
+      -u_1u_3 + u_3u_1 \\
+       u_1u_2 - u_2u_1
+    \end{xmatrix} = (n_1n_2)\Vect{0} = \Vect{0}$$
+    
+  \rQED
+\end{exercise}
+
+\begin{exercise}{16}
+\end{exercise}
+
+\begin{exercise}{19}
+\end{exercise}
+
+\begin{exercise}{24}
+  \def \Set {\Vect{v}^{\bot}}
+  \begin{enumerate}
+    \item Since $\Vect{0} \cdot \Vect{v} = 0$, $\Vect{0} \in \Set$.
+    
+          For any $\Vect{x}, \Vect{y} \in \Set$, $(\Vect{x} + \Vect{y}) \cdot \Vect{v} = \Vect{x} \cdot \Vect{v} + \Vect{y} \cdot \Vect{v} = 0 + 0 = 0$. Therefore, $(\Vect{x} + \Vect{y}) \in \Set$.
+          
+          For $\Vect{x} \in \Set$ and $c \in \mathbb{R}$, $(c\Vect{x}) \cdot \Vect{v} = c(\Vect{x} \cdot \Vect{v}) = c0 = 0$. \rQED
+    
+    \item $(\Vect{a} - \frac{\Vect{a} \cdot \Vect{v}}{|\Vect{v}|^2}\Vect{v}) \cdot \Vect{v} =
+            \Vect{a} \cdot \Vect{v} - \frac{\Vect{a}\cdot\Vect{v}}{|\Vect{v}|^2}\Vect{v} \cdot \Vect{v} =
+            \Vect{a} \cdot \Vect{v} - (1 - \frac{\Vect{v}^2}{|\Vect{v}|^2}) = 0$. \rQED
+            
+    \item Suppose that there exists $t'(\Vect{a})$ such that $(\Vect{a} + t'(\Vect{a})\Vect{v}) \in \Set$. Then we have:
+    
+         $$\left\{
+         \begin{aligned}
+            (\Vect{a} + t(\Vect{a})\Vect{v}) \cdot \Vect{v} = 0 \\
+            (\Vect{a} + t'(\Vect{a})\Vect{v}) \cdot \Vect{v} = 0
+         \end{aligned} \quad \Rightarrow \quad
+         \begin{aligned}
+            \Vect{a} \cdot \Vect{v} + t(\Vect{a})\Vect{v}^2 = 0 \\
+            \Vect{a} \cdot \Vect{v} + t'(\Vect{a})\Vect{v}^2 = 0
+         \end{aligned} \quad \Rightarrow \quad 
+         \begin{aligned}
+            t(\Vect{a}) = -\frac{\Vect{a} \cdot \Vect{v}}{\Vect{v}^2} \\
+            t'(\Vect{a}) = -\frac{\Vect{a} \cdot \Vect{v}}{\Vect{v}^2}
+         \end{aligned}
+         \right.$$
+         
+         Since there could be only one possible value for $-\frac{\Vect{a} \cdot \Vect{v}}{\Vect{v}^2}$, $t(\Vect{a}) = t'(\Vect{a})$, namely $t(\Vect{a})$ is unique.
+         
+        $$\Vect{a} + t(\Vect{a})\Vect{v} = \Vect{a} -\frac{\Vect{a} \cdot \Vect{v}}{\Vect{v}^2}\Vect{v} = \Vect{a} - \frac{\Vect{a} \cdot \Vect{v}}{|\Vect{v}|^2}\Vect{v} = P_{\Set}(\Vect{a})$$
+        
+        \rQED
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}{26}
 \end{exercise}
