@@ -49,6 +49,25 @@
 \end{exercise}
 
 \begin{exercise}{10}
+  \begin{enumerate}
+    \item This can be proven inductively: $k = 1$, $|A^1| = |A| = |A|^1$. $k = 2$, $|A^2| = |A \cdot A| \leq |A||A| = |A|^2$, from Cauchy-Schwarz's inequality. $k > 2$, $|A^k| = |A^{k-1} \cdot A| \leq |A^{k-1}||A| \leq |A|^k$. \rQED
+          $$|A^3| = |\begin{xmatrix}7&10\\5&7\end{xmatrix}| = \sqrt{223}$$
+          $$|A|^3 = (\sqrt{7})^3 = 7\sqrt{7}$$
+          
+    \item $|\Vect{u} \cdot \Vec{v}| = |\Vect{u}||\Vect{v}|$, because they are in opposite direction, namely $\Vect{u}$ is on the line spanned from $\Vect{v}$.
+          
+          $|\Vect{u} \cdot \Vect{w}| \leq |\Vect{u}||\Vect{w}|$, because the two vectors are not in the same or opposite directions, namely one is not on the line spanned from the other.
+          
+          $|\Vect{u} \cdot \Vect{v}| = 2 + 8 + 18 = 28 = \sqrt{14} \cdot \sqrt{56} = |\Vect{u}||\Vect{v}|$.
+          
+          $|\Vect{u} \cdot \Vec{w}| = 2 + 18 = 20$, $|\Vect{u}||\Vect{w}| = \sqrt{14} \cdot \sqrt{40} = 4\sqrt{35} > 20 = |\Vect{u} \cdot \Vect{w}|$.
+    
+    \item Let $\Vect{u} = \begin{bmatrix}-v_2\\v_1\end{bmatrix}$, namely rotating $\Vect{v}$ by $\frac{\pi}{2}$ counterclockwise. $\Vect{u} \cdot \Vect{w} = -v_2w_1 + v_1w_2 < 0$. Therefore, the angle between $\Vect{u}$ and $\Vect{w}$ is larger than $\frac{\pi}{2}$, which means $\Vect{w}$ lies clockwise from $\Vect{v}$.
+    
+    \item Let $\theta$ be the angle between $\Vect{v}$ and $\Vect{w}$. $\cos(\theta) = \frac{\Vect{v} \cdot \Vect{w}}{|\Vect{v}||\Vect{w}|}$, $\cos{\theta}|\Vect{v}||\Vect{w}| = 42$.
+    
+          If $\cos(\theta) = 1$, $|\Vect{v}||\Vect{w}| = 42$, or $|Vect{w}| = 3\sqrt{14}$. This is the shortest $\Vect{w}$. As $\cos(\theta)$ approaches $0$, $|\Vect{w}|$ will approach $\infty$, so there is no longest $\Vect{w}$.
+  \end{enumerate}
 \end{exercise}
 
 \begin{exercise}{13}
@@ -81,6 +100,10 @@
 \end{exercise}
 
 \begin{exercise}{16}
+  \begin{enumerate}
+    \item $Area = \det(\begin{xmatrix}1&5\\2&1\end{xmatrix}) = 1 - 10 = -9$
+    \item $Area = \det(\begin{xmatrix}1&5\\2&-1\end{xmatrix}) = -1 - 10 = -11$
+  \end{enumerate}
 \end{exercise}
 
 \begin{exercise}{19}
