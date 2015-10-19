@@ -54,13 +54,13 @@
           $$|A^3| = |\begin{xmatrix}7&10\\5&7\end{xmatrix}| = \sqrt{223}$$
           $$|A|^3 = (\sqrt{7})^3 = 7\sqrt{7}$$
           
-    \item $|\Vect{u} \cdot \Vec{v}| = |\Vect{u}||\Vect{v}|$, because they are in opposite direction, namely $\Vect{u}$ is on the line spanned from $\Vect{v}$.
+    \item $|\Vect{u} \cdot \Vect{v}| = |\Vect{u}||\Vect{v}|$, because they are in opposite direction, namely $\Vect{u}$ is on the line spanned from $\Vect{v}$.
           
           $|\Vect{u} \cdot \Vect{w}| \leq |\Vect{u}||\Vect{w}|$, because the two vectors are not in the same or opposite directions, namely one is not on the line spanned from the other.
           
           $|\Vect{u} \cdot \Vect{v}| = 2 + 8 + 18 = 28 = \sqrt{14} \cdot \sqrt{56} = |\Vect{u}||\Vect{v}|$.
           
-          $|\Vect{u} \cdot \Vec{w}| = 2 + 18 = 20$, $|\Vect{u}||\Vect{w}| = \sqrt{14} \cdot \sqrt{40} = 4\sqrt{35} > 20 = |\Vect{u} \cdot \Vect{w}|$.
+          $|\Vect{u} \cdot \Vect{w}| = 2 + 18 = 20$, $|\Vect{u}||\Vect{w}| = \sqrt{14} \cdot \sqrt{40} = 4\sqrt{35} > 20 = |\Vect{u} \cdot \Vect{w}|$.
     
     \item Let $\Vect{u} = \begin{bmatrix}-v_2\\v_1\end{bmatrix}$, namely rotating $\Vect{v}$ by $\frac{\pi}{2}$ counterclockwise. $\Vect{u} \cdot \Vect{w} = -v_2w_1 + v_1w_2 < 0$. Therefore, the angle between $\Vect{u}$ and $\Vect{w}$ is larger than $\frac{\pi}{2}$, which means $\Vect{w}$ lies clockwise from $\Vect{v}$.
     
@@ -107,6 +107,10 @@
 \end{exercise}
 
 \begin{exercise}{19}
+  \begin{enumerate}
+    \item $|\Vect{v}_n| = \sqrt{1 + \hdots + 1} = \sqrt{n}$
+    \item $\cos{a_n} = \frac{\Vect{v}_n \cdot \Vect{e}_1}{|\Vect{v}_n||\Vect{e}_1|} = \frac{1}{\sqrt{n}}$, so $a_n = \arccos{\frac{1}{\sqrt{n}}}$. $\lim_{n \to \infty} a_n = \arccos{\frac{1}{\infty}} = \frac{\pi}{2}$.
+  \end{enumerate}
 \end{exercise}
 
 \begin{exercise}{24}
@@ -148,4 +152,32 @@
 \end{exercise}
 
 \begin{exercise}{26}
+  \begin{enumerate}
+    \item $$A\begin{xmatrix}x\\y\end{xmatrix} = \begin{xmatrix}x-2y\\3x+4y\end{xmatrix}$$
+    
+          $$a\begin{pmatrix}x\\y\end{pmatrix} = \arccos{\frac{x^2+xy+4y^2} {\sqrt{10}\sqrt{(x^2+y^2) (x^2+2xy+2y^2)}}}$$
+          
+    \item Suppose there existing a nonzero vector such that it is rotated by $\frac{\pi}{2}$:
+    
+          $$\frac{x^2+xy+4y^2} {\sqrt{10}\sqrt{(x^2+y^2) (x^2+2xy+2y^2)}} = \cos(\frac{\pi}{2})$$
+          $$x^2+xy+4y^2=0$$
+          $$(\frac{1}{2}x+2y)^2=-\frac{3}{4}x^2$$
+          
+          Because $(\frac{1}{2}x+2y)^2 \geq 0$ and $-\frac{3}{4}x^2 \leq 0$, both sides must equal $0$. Therefore, $x = 0, y = 0$, which contradicts the premise of nonzero vector. As a result, such vector doesn't exist.
+  \end{enumerate}
 \end{exercise}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
