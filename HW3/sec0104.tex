@@ -73,9 +73,9 @@
 \begin{exercise}{13}
   First, we can prove that for any
     $\Vect{a} = \begin{xmatrix}a_1\\a_2\\a_3\end{xmatrix},
-     \Vect{b} = \begin{xmatrix}b_1\\b_2\\b_3\end{xmatrix}$ and $x, y \in \mathbb{R}$, $(x\Vect{a}) \times y\Vect{b} = xy(\Vect{a} \times \Vect{b})$:
+     \Vect{b} = \begin{xmatrix}b_1\\b_2\\b_3\end{xmatrix}$ and $x, y \in \mathbb{R}$, $x\Vect{a} \times y\Vect{b} = xy(\Vect{a} \times \Vect{b})$:
   
-  $$(x\Vect{a}) \times y\Vect{b} =
+  $$x\Vect{a} \times y\Vect{b} =
     \begin{xmatrix}
        xa_2yb_3 - xa_3yb_2 \\
       -xa_1yb_3 + xa_3yb_1 \\
@@ -101,8 +101,8 @@
 
 \begin{exercise}{16}
   \begin{enumerate}
-    \item $Area = \det(\begin{xmatrix}1&5\\2&1\end{xmatrix}) = 1 - 10 = -9$
-    \item $Area = \det(\begin{xmatrix}1&5\\2&-1\end{xmatrix}) = -1 - 10 = -11$
+    \item $|Area| = |\det(\begin{xmatrix}1&5\\2&1\end{xmatrix})| = |1 - 10| = 9$
+    \item $|Area| = |\det(\begin{xmatrix}1&5\\2&-1\end{xmatrix})| = |-1 - 10| = 11$
   \end{enumerate}
 \end{exercise}
 
@@ -124,9 +124,9 @@
     
     \item $(\Vect{a} - \frac{\Vect{a} \cdot \Vect{v}}{|\Vect{v}|^2}\Vect{v}) \cdot \Vect{v} =
             \Vect{a} \cdot \Vect{v} - \frac{\Vect{a}\cdot\Vect{v}}{|\Vect{v}|^2}\Vect{v} \cdot \Vect{v} =
-            \Vect{a} \cdot \Vect{v} - (1 - \frac{\Vect{v}^2}{|\Vect{v}|^2}) = 0$. \rQED
+            \Vect{a} \cdot \Vect{v}(1 - \frac{\Vect{v}^2}{|\Vect{v}|^2}) = 0$. \rQED
             
-    \item Suppose that there exists $t'(\Vect{a})$ such that $(\Vect{a} + t'(\Vect{a})\Vect{v}) \in \Set$. Then we have:
+    \item (b) suggests the existence of $t(\Vect{a})$. Suppose that there exists a distinct $t'(\Vect{a})$ such that $(\Vect{a} + t'(\Vect{a})\Vect{v}) \in \Set$. Then we have:
     
          $$\left\{
          \begin{aligned}
@@ -166,18 +166,3 @@
           Because $(\frac{1}{2}x+2y)^2 \geq 0$ and $-\frac{3}{4}x^2 \leq 0$, both sides must equal $0$. Therefore, $x = 0, y = 0$, which contradicts the premise of nonzero vector. As a result, such vector doesn't exist.
   \end{enumerate}
 \end{exercise}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
