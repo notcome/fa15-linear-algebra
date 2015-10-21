@@ -17,3 +17,25 @@
           \end{aligned}$
   \end{enumerate}
 \end{exercise}
+
+\begin{exercise}{10}
+  \begin{enumerate}
+    \item Let the function \FunSS{f}{B}{C} and \FunSS{g}{A}{B} be onto.
+          Then the composition $f \circ g$ is onto.
+
+    \Proof{} For every $c \in C$: since \FunSS{f}{B}{C} is surjective, there
+    exists $b \in B$ such that $f(b) = c$; since \FunSS{g}{A}{B} is surjective,
+    there exists $a \in A$ such that $g(a) = b$. Therefore, for every $c \in C$,
+    there exists $a \in A$ such that $(f \circ g)(a) = f(g(a)) = c$.
+    Thus, $f \circ g$ is surjective, or onto. \QED
+
+    \item Let the function \FunSS{f}{B}{C} and \FunSS{g}{A}{B} be one to one.
+          Then the composition $f \circ g$ is one to one.
+
+    \Proof{} For every $c \in C$ such that there exists $a \in A$ such that
+    $f(g(a)) = c$, suppose there do exist $x, y \in A$ such that both $f(g(x)) = c$
+    and $f(g(y)) = c$. Since $f$ is injective, $g(x) = g(y)$. Since $g$ is injective
+    , $x = y$. Therefore, there is at most one $x$ such that $(f \circ g)(x) =
+    f(g(x)) = c$. Thus, $f \circ g$ is injective, or one to one. \QED
+  \end{enumerate}
+\end{exercise}
