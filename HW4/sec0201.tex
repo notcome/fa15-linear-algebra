@@ -70,3 +70,29 @@
         \xmat{1&0&0&0 \\ 0&1&0&0 \\ 0&0&1&1} = \widetilde{A}$
   \end{enumerate}
 \end{exercise}
+
+\begin{exercise}{5}
+  \begin{enumerate}
+    \item Multiplying a row by a nonzero number $c$.
+    
+        Such operation can be undone by multiplying the result row with $1/c$, since $\forall x \in \mathbb{R}$, $(1/c)cx = ((1/c)c)x = x$, namely $1/c$ is $c$'s inverse with $1$ being the identity providing that $c \neq 1$, and multiplication over real numbers is associative. Since $1/c /neq = 0$, this undoing is also a row operation.
+    
+    \item Adding a multiple $c$ of a row $r_0$ onto another row $r_x$.
+    
+        Such operation can be undone by adding the result row with $-cr_0$, since $\forall c \in \mathbb{R}$, $-cr_0 + cr_0 + r_x = (-cr_0 + cr_0) + r_x = (-c+c)r_0 + r_x = r_x$, namely $-c$ is $c$'s inverse with $0$ being the identity, addition over vectors of real numbers is associative, and scaling of vectors of real numbers is distributive. Since $-cr_0$ is a multiple of $r_0$, this undoing is also a row operation.
+        
+    \item Exchanging two rows.
+    
+    Exchanging them back. This is also a row reduction.
+  \end{enumerate}
+  
+  Therefore, any row operation can be undone by another row reduction. \rQED
+\end{exercise}
+
+\begin{exercise}{8}
+  Let the number of rows of $A$ be $n$. Since each row has at most one pivot, $\widetilde{A}$ has at most $n$ pivots.
+  
+  Supposing that $\widetilde{A}$ has $n$ pivots. Since each column has at most one pivot, the last column of $\widetilde{A}$ has a pivot. Since each row must have exactly one pivot, the last row of $\widetilde{A}$ has a pivot. Since the pivotal $1$ of a lower row is always to the right of the pivotal $1$ of a higher row, and the $n-1$-th rows have $n-1$ pivots, the last column of the last row of $\widetilde{A}$ must be the pivot. Since the $n-1 \times n-1$ matrix of the upper left part of $\widetilde{A}$ has the rest $n-1$ pivots, with all those requirements still applied, the rightmost column's bottommost row is a pivot. Inductively, one can prove that all pivots lie on the orthogonal of $\widetilde{A}$. Since in every column that contains a pivotal 1, all other entries are 0, $\widetilde{A}$'s rest entries must be 0. Therefore, $\widetilde{A}$ is an identity matrix.
+  
+  Supposing that $\widetilde{A}$ has less than $n$ pivots. Since in every row, the first nonzero entry is $1$, there must be some rows consisting only 0, otherwise there will be $n$ pivots. Then, since any rows consisting entirely of $0$'s are at the bottom, such $\widetilde{A}$'s bottom row must be all $0$. Therefore, $\widetilde{A}$ is either the identity or the last row is a row of zeros. \rQED
+\end{exercise}
