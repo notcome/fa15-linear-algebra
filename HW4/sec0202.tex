@@ -1,16 +1,62 @@
 \gotosection{2}{2}
 \subsection{Solving equations with row reduction}
 
+\begin{exercise}{3}
+\begin{enumerate}
+\item By row reduction, the soultion for this system is $x = w-2y$, $w = 3z$, $v = 0$, and $y, w$ are free variables. Now confirming the solution without using row reduction.
+
+Label the four equations as $A, B, C, D$. Substituting $x+2y$ with $a$, $A+B$ gives $a = w$. Substituting this into $C$ and $D$ gives $3z + 2v = 9w$ and $z + v = 3w$, and in order to make these two compatible, $v = 0$, $z = 3w$. Since $a = x+2y = w$, $x=w-2y$.
+
+\item Only $y, w$ are free variables, so the family of solutions depend on two variables.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}{5}
+\begin{enumerate}
+\item If $a=0$, the system has a set of solutions $y=2, z=3$, and $x$ is a free variable.
+
+If $a \neq 0$, the matrix can be row reduced as:
+$[A|\Vect{b}] = \xmat{a&1&0&2\\0&a&1&3} \rightarrow
+  \rops{R_1: 1/aR_1}
+  \xmat{1&1/a&0&2/a\\0&a&1&3} \rightarrow
+  \rops{R_2: 1/aR_2}
+  \xmat{1&1/a&0&2/a\\0&1&1/a&3/a} \\ \rightarrow
+  \rops{R_1: R_1 - 1/aR_2}
+  \xmat{1&0&-1/a^2&(2a-3)/a^2\\0&1&1/a&3/a}$
+  
+Then, as long as $a \neq 0$, the result matrix is in echelon form and is consistent, so it has solutions. Therefore, for any value of $a$, the system has solutions.
+
+\item There are three unknowns but only two equations, it's impossible for this system to have a unique solution.
+\end{enumerate}
+\end{exercise}
+
 \begin{exercise}{7}
+The matrix can be row reduced as:
 $[A|\Vect{b}] = \xmat{1&1&2&1 \\ 1&-1&a&b \\ 2&0&-b&0} \rightarrow
-  \rops{R_2: -R_1 + R_2 \\ R_2: -2R_1 + R_3}
+  \rops{R_2: -R_1 + R_2 \\ R_2: -2R_1 + R_3} \\
     \xmat{1&1&2&1 \\ 0&-2&a-2&b-1 \\ 0&-2&-b-4&-2} \rightarrow
   \rops{R_2: -1/2R_2}
-    \xmat{1&1&2&1 \\ 0&1&1-a/2&1/2(1-b) \\ 0&-2&-b-4&-2} \rightarrow
+    \xmat{1&1&2&1 \\ 0&1&(2-a)/2&(1-b)/2 \\ 0&-2&-b-4&-2} \\ \rightarrow
   \rops{R_1: R_1 - R_2 \\ R_3: 2R_2 + R_3}
-    \xmat{1&0&1+a/2&1/2(1+b) \\ 0&1&1-a/2&1/2(1-b) \\ 0&0&-a-b-2&-1-b} \rightarrow
-  \rops{R_3: -1/(a+b+2)R_3}
-    \xmat{1&0&1+a/2&1/2(1+b) \\ 0&1&1-a/2&1/2(1-b) \\ 0&0&1&b+1/a+b+2} \rightarrow
-  \rops{R_1\\R_2}
-    \xmat{1&0&0&... \\ 0&1&0&... \\ 0&0&1&b+1/a+b+2}$
+    \xmat{1&0 & (2+a)/2 & (1+b)/2 \\
+          0&1 & (2-a)/2 & (1-b)/2 \\
+          0&0 & 2+a+b   & b+1}$
+          
+\begin{enumerate}
+\item If $2+a+b = 0$, there exists two possibilities: first, $b+1 \neq 0$, the linear system is inconsistent and thus has no solutions; second, $b + 1 = 0$, then $a=b=-1$, substitute $a,b$:
+$$\xmat{1&0 & 1/2 & 0  \\
+        0&1 & 3/2 & -1 \\
+        0&0 & 0   & 0}$$
+        
+The result matrix is in echelon form. The third column has no pivotal, so the system has infinitely many solutions with one free variable:
+\begin{align*}
+  x &= 0 - 1/2s  \\
+  y &= -1 - 3/2s \\
+  z &= s
+\end{align*}
+If $2+a+b \neq 0$, the matrix can be further reduced into the identity matrix, and therefore has a unique solution:
+$$x = \frac{1}{2} \cdot \frac{b(b+1)}{2+a+b} \quad
+  y = \frac{1}{2} \cdot \frac{2a-3b-b^2}{2+a+b} \quad
+  z = \frac{b+1}{2+a+b}$$
+\end{enumerate}
 \end{exercise}
