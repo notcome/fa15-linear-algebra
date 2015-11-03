@@ -1,0 +1,16 @@
+\gotosection{2}{2}
+\subsection{Solving equations with row reduction}
+
+\begin{exercise}{7}
+$[A|\Vect{b}] = \xmat{1&1&2&1 \\ 1&-1&a&b \\ 2&0&-b&0} \rightarrow
+  \rops{R_2: -R_1 + R_2 \\ R_2: -2R_1 + R_3}
+    \xmat{1&1&2&1 \\ 0&-2&a-2&b-1 \\ 0&-2&-b-4&-2} \rightarrow
+  \rops{R_2: -1/2R_2}
+    \xmat{1&1&2&1 \\ 0&1&1-a/2&1/2(1-b) \\ 0&-2&-b-4&-2} \rightarrow
+  \rops{R_1: R_1 - R_2 \\ R_3: 2R_2 + R_3}
+    \xmat{1&0&1+a/2&1/2(1+b) \\ 0&1&1-a/2&1/2(1-b) \\ 0&0&-a-b-2&-1-b} \rightarrow
+  \rops{R_3: -1/(a+b+2)R_3}
+    \xmat{1&0&1+a/2&1/2(1+b) \\ 0&1&1-a/2&1/2(1-b) \\ 0&0&1&b+1/a+b+2} \rightarrow
+  \rops{R_1\\R_2}
+    \xmat{1&0&0&... \\ 0&1&0&... \\ 0&0&1&b+1/a+b+2}$
+\end{exercise}
