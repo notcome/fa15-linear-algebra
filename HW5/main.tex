@@ -39,4 +39,83 @@ $\Vect{0} = 0\Vect{v}_1 + \hdots + 0\Vect{v}_k$, therefore, $\Vect{0} \in \TheSp
 Assuming there exists a subspace $V$ of $\mathbb{R}^n$ such that $V \subset \TheSpan$ and $V \neq \TheSpan$. For any $\Vect{u} \in \TheSpan$, since $\Vect{v}_1, \hdots, \Vect{v}_k \in V$ and $\Vect{u} = \sum_{i=1}^ka_i\Vect{v}_i$ for some $a_1, \hdots, a_k$, $\Vect{u} \in V$. Therefore, $V \subset \TheSpan$, $V = \TheSpan$, which contradicts to the assumption. \rQED
 \end{exercise}
 
+\begin{exercise}{7}
+First, we prove that for any orthogonal matrix $A$, $A^{\top}A = I$.
+
+Let $B = A^{\top}A$, from the formula of matrix multiplication we know that $B_{ij}$ is the dot product of $A^{\top}$'s $i$th row and $A$'s $j$th column. From the definition of transpose we also know that $A^{\top}$'s $i$th row is just $A$'s $i$th column. Let $a_i$ denote the vector represented by $A$'s $i$th column. Then, if $i = j$, $B_{ij} = B_{ii} = a_i \cdot a_i = 1$; if $i \neq j$, $B_{ij} = a_i \cdot a_j = 0$, since $a_i$ is orthogonal to $a_j$. Because all orthogonal entries of $B$ are one and all other entries are zero, $B$ is the identity matrix. Therefore, for any orthogonal matrix $A$, $A^{\top}A = I$.
+
+Then, let's prove that for any square matrix $A$, if $A^{\top}A = I$, $A$ is orthogonal.
+
+Again, let $a_i$ denote the vector represented by $A$'s $i$th column. We know that the dot product of $A^{\top}$'s $i$th row seen as a vector and $a_j$ is zero if $i \neq j$ and one if $i == j$. Since $A^{\top}$'s $i$th row is just $A$'s $i$th column, this means that $a_i \cdot a_i = 1$ and $a_i \cdot a_j = 0$ for all columns other than $a_i$. Therefore, each column of $A$ is normalized and is orthogonal to all other columns, Thus $A$ is orthogonal.
+
+This completes the proof. \rQED
+\end{exercise}
+
+\begin{exercise}{10}
+\begin{align*}
+u\Vect{v}_1 + v\Vect{v}_2 &= x\Vect{e}_1 + y\Vect{e}_2 \\
+u\Vect{v}_1 + v\Vect{v}_2 &= \xmat{x\\y} \\
+\xmat{1&1\\1&3}\xmat{u\\v} &= \xmat{x\\y} \\
+\xmat{u\\v} &= \xmat{1&1\\1&3}^{-1}\xmat{x\\y}
+\end{align*}
+
+Use the row reduction method to calculuate the matrix inverse:
+$$\xmat{1&1&1&0\\1&3&0&1} \RRT \xmat{1&0&3/2&-1/2\\0&1&-1/2&1/2}$$
+
+Therefore, $\xmat{u\\v} = \xmat{3/2&-1/2\\-1/2&1/2}\xmat{x\\y}$. For $\xmat{3\\-5}$, $u = 7, v = -4$:
+$$\xmat{3\\-5} = 7\Vect{v}_1 - 4\Vect{v}_2 = 7\xmat{1\\1} - 4\xmat{1\\3}$$
+\end{exercise}
+
+\begin{exercise}{11}
+\end{exercise}
+
+\begin{exercise}{12}
+\def \Vi{\Vect{v}_0}
+\def \Va{\Vect{v}_1}
+\def \Vb{\Vect{v}_2}
+\def \Vc{\Vect{v}_3}
+
+Let $\Vi,\Va,\Vb,\Vc \in \mathbb{R}^4$ denote the vectors associated with $I, A_t, A_t^2, A_t^3$ respectively. With matrix multiplication, we have:
+$$\Vi = \cmat{1\\0\\0\\1} \quad \Va = \cmat{2\\t\\0\\2} \quad \Vb = \cmat{4\\4t\\0\\4} \quad \Vc = \cmat{8\\12t\\0\\8}$$
+
+\begin{enumerate}
+\item To figure out the dimension of the subspace $V_t$ spanned from $\Vi, \Va, \Vb, \Vc$, we can row reduce the matrix $\{\Vi, \Va, \Vb, \Vc\}$.
+$$\cmat{1&2&4&8\\0&t&4t&12t\\0&0&0&0\\1&2&4&8} \RRT \cmat{1&2&4&8\\0&t&4t&12t\\0&0&0&0\\0&0&0&0}$$
+
+The vector represented by a non-pivotal column can always be expanded to the linear combinations of vectors represented by pivotal columns preceding it. The rest vectors represented by pivotal columns in this matrix are linearly independent to each other. Since these ``pivotal vectors" can represent all other vectors in this matrix, the span of these vectors is the same as $V_t$. Therefore, the dimension of $V_t$ is just the number of pivotal columns of this row reduced matrix.
+
+If $t = 0$, only the first column will have pivotal $1$, $\dim{V_t} = 1$. If $t \neq 0$, the second column can be further row reduce to a pivotal column but  the third and the fourth one cannot. Therefore, $\dim{V_t} = 2$. It's clear that in both scenarios these four vectors are not linearly independent.
+
+\item For any matrix $B = \xmat{a&b\\c&d}$, $A_tB = \cmat{2a+ct&2b+dt\\2c&2d}$, $BA_t=\cmat{2a&at+2b\\2c&ct+2d}$. If $A_tB = BA_t$, we have:
+$$\left\{\begin{aligned}
+ct + 2a &= 2a \\
+at + 2b &= 2b + dt \\
+ct + 2d &= 2d
+\end{aligned}\right.\quad \Longrightarrow \quad
+\left\{\begin{aligned}
+ct &= 0 \\
+at &= dt
+\end{aligned}\right.$$
+
+If $t = 0$, $a, b, c, d$ can be any value, namely for any $\Vect{v} \in \mathbb{R}^4, \Vect{v} \in W_t$, or $W_t \supset \mathbb{R}^4$; by definition $W_t \subset \mathbb{R}^4$, therefore $W_t = \mathbb{R}^4$. As a consequence, $W_t$ is a trivial subspace and $\dim{W_t} = 4$.
+
+If $t \neq 0$, $c = 0, a = d$,
+$$B = \cmat{a\\b\\0\\a} = a\xmat{1\\0\\0\\1} + b\xmat{0\\1\\0\\0}$$
+
+. Let $\Vect{u}_1 = \xmat{1\\0\\0\\1}, \Vect{u}_2 = \xmat{0\\1\\0\\0}$, $W_t = \{a\Vect{u}_1 + b\Vect{u}_2 : a, b \in \mathbb{R}\}$. Choose $a = b = 0$, $\Vect{0} \in W_t$. For any $a_1,b_1,a_2,b_2,c\in\mathbb{R}$, we have $a_1\Vect{u}_1 + b_1\Vect{u}_2 \in W_t$, $a_2\Vect{u}_1 + b_2\Vect{u}_2 \in W_t$, $a_1\Vect{u}_1 + b_1\Vect{u}_2 + a_2\Vect{u}_1 + b_2\Vect{u}_2  = (a_1+a_2)\Vect{u}_1 + (b_1+b_2)\Vect{u}_2 \in W_t$; $c(a_1\Vect{u}_1 + b_1\Vect{u}_2) = ca_1\Vect{u}_1 + cb_1\Vect{u}_2 \in W_t$. Therefore, $W_t$ is a subspace.
+
+$\Vect{u}_1$ and $\Vect{u}_2$ are linearly independent. For any vector $\Vect{u} \in W_t$, $\Vect{u}$ can be written as a linear combination of $\Vect{u}_1$ and $\Vect{u}_2$; for any vector $\Vect{w}$ that can be written as a linear combination of $\Vect{u}_1$ and $\Vect{u}_2$, $\Vect{w} \in W_t$. Therefore, $\Vect{u}_1$ and $\Vect{u}_2$ form a basis of $W_t$, and $\dim{W_t} = 2$.
+
+\item If $t=0$, $V_t = \{a\Vi:a\in\mathbb{R}\}$, $W_t = \mathbb{R}^4$. It's clear that $V_t \in W_t$. To prove that $V_t \neq W_t$, just pick a vector  $\Vect{u} \in \mathbb{R}^4$ whose second entry is nonzero.
+
+If $t\neq 0$,  $V_t = \{a\Vi+b\Va:a,b\in\mathbb{R}\}$, $W_t = \{a\Vect{u}_1 + b\Vect{u}_2 : a, b \in \mathbb{R}\}$. To prove $V_t \subset W_t$, pick any $a,b \in \mathbb{R}$:
+$$a\cmat{1\\0\\0\\1} + b\cmat{2\\t\\0\\2} = \cmat {a+2b\\bt\\0\\a+2b} = (a+2b)\Vect{u}_1 + b\Vect{u}_2 \in W_t$$
+
+To figure out for what values of $t$, $V_t = W_t$, namely $V_t \supset W_t$, we can pick any $a, b=ct \in \mathbb{R}$:
+$$a\cmat{1\\0\\0\\1} + b\cmat{0\\1\\0\\0} = \cmat{a\\ct\\0\\a} = (a-2c)\Vi + c\Va \in V_t$$
+
+As long as $t \neq 0$, $V_t = W_t$.
+\end{enumerate}
+\end{exercise}
+
 \end{document}
