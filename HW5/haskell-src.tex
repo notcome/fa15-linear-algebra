@@ -1,0 +1,249 @@
+GHC extension \emph{Scoped Type Variables} is required for compilation.
+
+\medskip
+
+%% ODER: format ==         = "\mathrel{==}"
+%% ODER: format /=         = "\neq "
+%
+%
+\makeatletter
+\@ifundefined{lhs2tex.lhs2tex.sty.read}%
+  {\@namedef{lhs2tex.lhs2tex.sty.read}{}%
+   \newcommand\SkipToFmtEnd{}%
+   \newcommand\EndFmtInput{}%
+   \long\def\SkipToFmtEnd#1\EndFmtInput{}%
+  }\SkipToFmtEnd
+
+\newcommand\ReadOnlyOnce[1]{\@ifundefined{#1}{\@namedef{#1}{}}\SkipToFmtEnd}
+
+\newcommand{\tex}[1]{\text{\texfamily#1}}	% NEU
+
+\newcommand{\Sp}{\hskip.33334em\relax}
+
+
+\newcommand{\Conid}[1]{\mathit{#1}}
+\newcommand{\Varid}[1]{\mathit{#1}}
+\newcommand{\anonymous}{\kern0.06em \vbox{\hrule\@width.5em}}
+\newcommand{\plus}{\mathbin{+\!\!\!+}}
+\newcommand{\bind}{\mathbin{>\!\!\!>\mkern-6.7mu=}}
+\newcommand{\rbind}{\mathbin{=\mkern-6.7mu<\!\!\!<}}% suggested by Neil Mitchell
+\newcommand{\sequ}{\mathbin{>\!\!\!>}}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+%mathindent has to be defined
+\@ifundefined{mathindent}%
+  {\newdimen\mathindent\mathindent\leftmargini}%
+  {}%
+
+\def\resethooks{%
+  \global\let\SaveRestoreHook\empty
+  \global\let\ColumnHook\empty}
+\newcommand*{\savecolumns}[1][default]%
+  {\g@addto@macro\SaveRestoreHook{\savecolumns[#1]}}
+\newcommand*{\restorecolumns}[1][default]%
+  {\g@addto@macro\SaveRestoreHook{\restorecolumns[#1]}}
+\newcommand*{\aligncolumn}[2]%
+  {\g@addto@macro\ColumnHook{\column{#1}{#2}}}
+
+\resethooks
+
+\newcommand{\onelinecommentchars}{\quad-{}- }
+\newcommand{\commentbeginchars}{\enskip\{-}
+\newcommand{\commentendchars}{-\}\enskip}
+
+\newcommand{\visiblecomments}{%
+  \let\onelinecomment=\onelinecommentchars
+  \let\commentbegin=\commentbeginchars
+  \let\commentend=\commentendchars}
+
+\newcommand{\invisiblecomments}{%
+  \let\onelinecomment=\empty
+  \let\commentbegin=\empty
+  \let\commentend=\empty}
+
+\visiblecomments
+
+\newlength{\blanklineskip}
+\setlength{\blanklineskip}{0.66084ex}
+\newcommand{\hsindent}[1]{\quad}% default is fixed indentation
+\let\hspre\empty
+\let\hspost\empty
+\newcommand{\NB}{\textbf{NB}}
+\newcommand{\Todo}[1]{$\langle$\textbf{To do:}~#1$\rangle$}
+
+
+\EndFmtInput
+\makeatother
+%
+
+\begingroup\par\noindent\advance\leftskip\mathindent\(
+\begin{pboxed}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{3}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{5}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{7}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{9}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{11}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{12}{@{}>{\hspre}c<{\hspost}@{}}%
+\column{12E}{@{}l@{}}%
+\column{13}{@{}>{\hspre}c<{\hspost}@{}}%
+\column{13E}{@{}l@{}}%
+\column{15}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{16}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{19}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{20}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\mathbf{import}\;\Conid{\Conid{Data}.Matrix}{}\<[E]%
+\\
+\>[B]{}\mathbf{import}\;\Conid{\Conid{Data}.Ratio}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{echelonForm}\mathbin{::}\Varid{forall}\;\Varid{a}\mathbin{\circ}(\Conid{Num}\;\Varid{a},\Conid{Fractional}\;\Varid{a},\Conid{Eq}\;\Varid{a})\Rightarrow \Conid{Matrix}\;\Varid{a}\to \Conid{Matrix}\;\Varid{a}{}\<[E]%
+\\
+\>[B]{}\Varid{echelonForm}\;\Varid{m}\mathrel{=}\Varid{foldl}\;\Varid{reduceColumn}\;\Varid{m}\;[\mskip1.5mu \mathrm{1}\mathinner{\ldotp\ldotp}\Varid{width}\mskip1.5mu]{}\<[E]%
+\\
+\>[B]{}\hsindent{3}{}\<[3]%
+\>[3]{}\mathbf{where}{}\<[E]%
+\\
+\>[3]{}\hsindent{2}{}\<[5]%
+\>[5]{}\Varid{height}{}\<[13]%
+\>[13]{}\mathrel{=}{}\<[13E]%
+\>[16]{}\Varid{nrows}\;\Varid{m}{}\<[E]%
+\\
+\>[3]{}\hsindent{2}{}\<[5]%
+\>[5]{}\Varid{width}{}\<[13]%
+\>[13]{}\mathrel{=}{}\<[13E]%
+\>[16]{}\Varid{ncols}\;\Varid{m}{}\<[E]%
+\\[\blanklineskip]%
+\>[3]{}\hsindent{2}{}\<[5]%
+\>[5]{}\Varid{findPivot}\mathbin{::}\Conid{Int}\to \Conid{Matrix}\;\Varid{a}\to \Conid{Maybe}\;\Conid{Int}{}\<[E]%
+\\
+\>[3]{}\hsindent{2}{}\<[5]%
+\>[5]{}\Varid{findPivot}\;\Varid{col}\;\Varid{mat}\mathrel{=}\mathbf{let}{}\<[E]%
+\\
+\>[5]{}\hsindent{2}{}\<[7]%
+\>[7]{}\Varid{list}\mathrel{=}[\mskip1.5mu \Varid{row}\mid \Varid{row}\leftarrow [\mskip1.5mu \Varid{col}\mathinner{\ldotp\ldotp}\Varid{height}\mskip1.5mu],\Varid{getElem}\;\Varid{row}\;\Varid{col}\;\Varid{mat}\not\equiv \mathrm{0}\mskip1.5mu]{}\<[E]%
+\\
+\>[5]{}\hsindent{2}{}\<[7]%
+\>[7]{}\mathbf{in}\;\mathbf{case}\;\Varid{list}\;\mathbf{of}{}\<[E]%
+\\
+\>[7]{}\hsindent{2}{}\<[9]%
+\>[9]{}[\mskip1.5mu \mskip1.5mu]{}\<[15]%
+\>[15]{}\to {}\<[19]%
+\>[19]{}\Conid{Nothing}{}\<[E]%
+\\
+\>[7]{}\hsindent{2}{}\<[9]%
+\>[9]{}\Varid{c}\mathbin{:}\Varid{cs}{}\<[15]%
+\>[15]{}\to {}\<[19]%
+\>[19]{}\Conid{Just}\;\Varid{c}{}\<[E]%
+\\[\blanklineskip]%
+\>[3]{}\hsindent{2}{}\<[5]%
+\>[5]{}\Varid{reduceColumn}\mathbin{::}\Conid{Matrix}\;\Varid{a}\to \Conid{Int}\to \Conid{Matrix}\;\Varid{a}{}\<[E]%
+\\
+\>[3]{}\hsindent{2}{}\<[5]%
+\>[5]{}\Varid{reduceColumn}\;\Varid{mat}\;\Varid{col}\mathrel{=}\mathbf{case}\;\Varid{findPivot}\;\Varid{col}\;\Varid{mat}\;\mathbf{of}{}\<[E]%
+\\
+\>[5]{}\hsindent{2}{}\<[7]%
+\>[7]{}\Conid{Nothing}{}\<[16]%
+\>[16]{}\to {}\<[20]%
+\>[20]{}\Varid{mat}{}\<[E]%
+\\
+\>[5]{}\hsindent{2}{}\<[7]%
+\>[7]{}\Conid{Just}\;\Varid{p}{}\<[16]%
+\>[16]{}\to {}\<[20]%
+\>[20]{}\mathbf{let}{}\<[E]%
+\\
+\>[7]{}\hsindent{2}{}\<[9]%
+\>[9]{}\Varid{row}{}\<[16]%
+\>[16]{}\mathrel{=}{}\<[19]%
+\>[19]{}\Varid{col}{}\<[E]%
+\\
+\>[7]{}\hsindent{2}{}\<[9]%
+\>[9]{}\Varid{mat'}{}\<[16]%
+\>[16]{}\mathrel{=}{}\<[19]%
+\>[19]{}\Varid{switchRows}\;\Varid{p}\;\Varid{row}\;\Varid{mat}{}\<[E]%
+\\
+\>[7]{}\hsindent{2}{}\<[9]%
+\>[9]{}\Varid{scale}{}\<[16]%
+\>[16]{}\mathrel{=}{}\<[19]%
+\>[19]{}\mathrm{1}\mathbin{/}\Varid{getElem}\;\Varid{row}\;\Varid{col}\;\Varid{mat'}{}\<[E]%
+\\
+\>[7]{}\hsindent{2}{}\<[9]%
+\>[9]{}\Varid{mat''}{}\<[16]%
+\>[16]{}\mathrel{=}{}\<[19]%
+\>[19]{}\Varid{scaleRow}\;\Varid{scale}\;\Varid{row}\;\Varid{mat'}{}\<[E]%
+\\
+\>[7]{}\hsindent{2}{}\<[9]%
+\>[9]{}\Varid{rows}{}\<[16]%
+\>[16]{}\mathrel{=}{}\<[19]%
+\>[19]{}[\mskip1.5mu \Varid{r}\mid \Varid{r}\leftarrow [\mskip1.5mu \mathrm{1}\mathinner{\ldotp\ldotp}\Varid{height}\mskip1.5mu],\Varid{r}\not\equiv \Varid{row}\mskip1.5mu]{}\<[E]%
+\\
+\>[7]{}\hsindent{2}{}\<[9]%
+\>[9]{}\mathbf{in}\;\Varid{foldl}\;(\Varid{zeroify}\;\Varid{col})\;\Varid{mat''}\;\Varid{rows}{}\<[E]%
+\\[\blanklineskip]%
+\>[3]{}\hsindent{2}{}\<[5]%
+\>[5]{}\Varid{zeroify}\mathbin{::}\Conid{Int}\to (\Conid{Matrix}\;\Varid{a}\to \Conid{Int}\to \Conid{Matrix}\;\Varid{a}){}\<[E]%
+\\
+\>[3]{}\hsindent{2}{}\<[5]%
+\>[5]{}\Varid{zeroify}\;\Varid{col}\;\Varid{mat}\;\Varid{row}\mathrel{=}\Varid{combineRows}\;\Varid{row}\;\Varid{n}\;\Varid{col}\;\Varid{mat}{}\<[E]%
+\\
+\>[5]{}\hsindent{2}{}\<[7]%
+\>[7]{}\mathbf{where}\;\Varid{n}\mathrel{=}\mathbin{-}\Varid{getElem}\;\Varid{row}\;\Varid{col}\;\Varid{mat}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{buildMatrix}\mathbin{::}\Conid{Int}\to \Conid{Matrix}\;\Conid{Rational}{}\<[E]%
+\\
+\>[B]{}\Varid{buildMatrix}\;\Varid{n}\mathrel{=}\Varid{matrix}\;(\Varid{n}\mathbin{+}\mathrm{1})\;(\Varid{n}\mathbin{+}\mathrm{2})\;\Varid{generator}{}\<[E]%
+\\
+\>[B]{}\hsindent{3}{}\<[3]%
+\>[3]{}\mathbf{where}{}\<[E]%
+\\
+\>[3]{}\hsindent{2}{}\<[5]%
+\>[5]{}\Varid{generator}\;(\Varid{row},\Varid{col})\mathrel{=}\mathbf{let}{}\<[E]%
+\\
+\>[5]{}\hsindent{2}{}\<[7]%
+\>[7]{}\Varid{pow}{}\<[12]%
+\>[12]{}\mathrel{=}{}\<[12E]%
+\>[15]{}\Varid{toInteger}\;(\Varid{row}\mathbin{-}\mathrm{1}){}\<[E]%
+\\
+\>[5]{}\hsindent{2}{}\<[7]%
+\>[7]{}\Varid{x}{}\<[12]%
+\>[12]{}\mathrel{=}{}\<[12E]%
+\>[15]{}\Varid{toInteger}\;(\Varid{col}\mathbin{-}\mathrm{1})\mathbin{\%}\Varid{toInteger}\;\Varid{n}{}\<[E]%
+\\
+\>[5]{}\hsindent{2}{}\<[7]%
+\>[7]{}\mathbf{in}\;{}\<[11]%
+\>[11]{}\mathbf{if}\;\Varid{col}\equiv \Varid{n}\mathbin{+}\mathrm{2}{}\<[E]%
+\\
+\>[11]{}\mathbf{then}\;\mathrm{1}\mathbin{\%}(\Varid{pow}\mathbin{+}\mathrm{1}){}\<[E]%
+\\
+\>[11]{}\mathbf{else}\;\Varid{x}\mathbin{\uparrow}\Varid{pow}{}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{main}\mathbin{::}\Conid{IO}\;(){}\<[E]%
+\\
+\>[B]{}\Varid{main}\mathrel{=}\mathbf{do}{}\<[E]%
+\\
+\>[B]{}\hsindent{3}{}\<[3]%
+\>[3]{}\mathbf{let}\;\Varid{mat}{}\<[13]%
+\>[13]{}\mathrel{=}{}\<[13E]%
+\>[16]{}\Varid{buildMatrix}\;\mathrm{8}{}\<[E]%
+\\
+\>[B]{}\hsindent{3}{}\<[3]%
+\>[3]{}\Varid{putStrLn}{}\<[13]%
+\>[13]{}\mathbin{\$}{}\<[13E]%
+\>[16]{}\Varid{prettyMatrix}\;\Varid{mat}{}\<[E]%
+\\
+\>[B]{}\hsindent{3}{}\<[3]%
+\>[3]{}\mathbf{let}\;\Varid{mat'}{}\<[13]%
+\>[13]{}\mathrel{=}{}\<[13E]%
+\>[16]{}\Varid{echelonForm}\;\Varid{mat}{}\<[E]%
+\\
+\>[B]{}\hsindent{3}{}\<[3]%
+\>[3]{}\mathbf{let}\;\Varid{sols}{}\<[13]%
+\>[13]{}\mathrel{=}{}\<[13E]%
+\>[16]{}\Varid{getCol}\;\mathrm{10}\;\Varid{mat'}{}\<[E]%
+\\
+\>[B]{}\hsindent{3}{}\<[3]%
+\>[3]{}\Varid{print}\;\Varid{sols}{}\<[E]%
+\ColumnHook
+\end{pboxed}
+\)\par\noindent\endgroup\resethooks

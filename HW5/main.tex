@@ -1,6 +1,25 @@
 \documentclass{article}
 \input{../general}
 
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+\DeclareFontFamily{OT1}{cmtex}{}
+\DeclareFontShape{OT1}{cmtex}{m}{n}
+  {<5><6><7><8>cmtex8
+   <9>cmtex9
+   <10><10.95><12><14.4><17.28><20.74><24.88>cmtex10}{}
+\DeclareFontShape{OT1}{cmtex}{m}{it}
+  {<-> ssub * cmtt/m/it}{}
+\newcommand{\texfamily}{\fontfamily{cmtex}\selectfont}
+\DeclareFontShape{OT1}{cmtt}{bx}{n}
+  {<5><6><7><8>cmtt8
+   <9>cmbtt9
+   <10><10.95><12><14.4><17.28><20.74><24.88>cmbtt10}{}
+\DeclareFontShape{OT1}{cmtex}{bx}{n}
+  {<-> ssub * cmtt/bx/n}{}
+\usepackage{polytable}
+
 \MakeTitle{5}
 
 \begin{document}
@@ -167,4 +186,7 @@ $$a\cmat{1\\0\\0\\1} + b\cmat{0\\1\\0\\0} = \cmat{a\\ct\\0\\a} = (a-2c)\Vi + c\V
 As long as $t \neq 0$, $V_t = W_t$.
 \end{enumerate}
 \end{exercise}
+
+\newpage
+\input{./haskell-src}
 \end{document}
