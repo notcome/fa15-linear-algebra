@@ -67,6 +67,56 @@ $$\xmat{3\\-5} = 7\Vect{v}_1 - 4\Vect{v}_2 = 7\xmat{1\\1} - 4\xmat{1\\3}$$
 \end{exercise}
 
 \begin{exercise}{11}
+\begin{enumerate}
+\item
+$n = 1$:
+$$\left\{
+\begin{aligned}
+1 \cdot a_{0,1} + 1 \cdot a_{1,1} &= 1 \\
+0 \cdot a_{0,1} + 1 \cdot a_{1,1} &= \frac{1}{2}
+\end{aligned}
+\right.$$
+
+$n = 2$:
+\newcommand \EqnII[4]{#1 \cdot a_{0,2} + #2a_{1,2} + #3 \cdot a_{2,2} &= #4}
+$$\left\{
+\begin{aligned}
+\EqnII{1}{1\cdot}{1}{1} \\
+\EqnII{0}{\frac{1}{2}}{1}{\frac{1}{2}} \\
+\EqnII{0}{\frac{1}{4}}{1}{\frac{1}{3}}
+\end{aligned}
+\right.$$
+
+$n = 3$:
+\newcommand \EqnIII[5]{#1 \cdot a_{0,3} + #2a_{1,3} + #3a_{2,3} + #4 \cdot a_{3,3} &= #5}
+$$\left\{
+\begin{aligned}
+\EqnIII{1}{1\cdot}{1\cdot}{1}{1} \\
+\EqnIII{0}{\frac{1}{3}}{\frac{2}{3}}{1}{\frac{1}{2}} \\
+\EqnIII{0}{\frac{1}{9}}{\frac{4}{9}}{1}{\frac{1}{3}} \\
+\EqnIII{0}{\frac{1}{27}}{\frac{8}{27}}{1}{\frac{1}{4}}
+\end{aligned}
+\right.$$
+
+\item \def \toApprox{\int_0^1\frac{dx}{x+1} \approx}
+$n = 1$, $a_{0,1} = 1/2, a_{1,1} = 1/2$.
+$$\toApprox \frac{1}{2} \times 1 + \frac{1}{2} \times \frac{1}{2} = \frac{3}{4} = 0.75$$
+
+$n = 2$, $a_{0,2} = 1/6, a_{1,2} = 2/3, a_{2,2} = 1/6$.
+$$\toApprox \frac{1}{6} \times 1 + \frac{2}{3} \times \frac{2}{3} + \frac{1}{6} \times \frac{1}{2} = \frac{25}{36} = 0.695$$
+
+$n = 3$, $a_{0,3} = 1/8, a_{1,3} = 3/8, a_{0,3} = 3/8, a_{0,3} = 1/8$.
+$$\toApprox \frac{1}{8} \times 1 + \frac{3}{8}\times\frac{3}{4} + \frac{3}{8} \times\frac{3}{5}+\frac{1}{8} \times \frac{1}{2} = 0.69375$$
+
+\item $n = 8$, $[a_{0,8},\hdots,a_{8,8}] = $
+$$
+\xmat{\frac{989}{28350} & \frac{2944}{14175} & -\frac{464}{14175} & \frac{5248}{14175} & -\frac{454}{2835} & \frac{5248}{14175} & -\frac{464}{14175} & \frac{2944}{14175} & \frac{989}{28350}}
+$$
+
+One big difference is the existence of negative $a_{i,n}$.
+
+The result is calculated by a Haskell program written by myself, using a simple matrix library lacking a row-reduction function. The code, including the row-reduction function, both of which are released to the public domain, is put at the last page of this homework assignment.
+\end{enumerate}
 \end{exercise}
 
 \begin{exercise}{12}
@@ -117,5 +167,4 @@ $$a\cmat{1\\0\\0\\1} + b\cmat{0\\1\\0\\0} = \cmat{a\\ct\\0\\a} = (a-2c)\Vi + c\V
 As long as $t \neq 0$, $V_t = W_t$.
 \end{enumerate}
 \end{exercise}
-
 \end{document}
