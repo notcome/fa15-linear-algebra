@@ -41,7 +41,7 @@ $$\xmat{4&3&2&4\\2&0&1&1\\1&4&4&2} \RRT \xmat{1&0&0&2/3\\0&1&0&2/3\\0&0&1&-1/3}$
 $$\xmat{4\\1\\2} = \frac{2}{3}\xmat{4\\2\\1} + \frac{2}{3}\xmat{3\\0\\4} - \frac{1}{3}\xmat{2\\1\\4}$$
 But since
 $$\xmat{4&3&5&4\\2&0&1&1\\1&4&4.5&2} \RRT \xmat{1&0&1/2&0\\0&1&1&0\\0&0&0&1}$$
-, the vector \emph{is not} in the second matrix.
+, the vector \emph{is not} in the second span.
 \end{enumerate}
 \end{exercise}
 
@@ -54,7 +54,7 @@ Let $\Vect{v}_1 = \xmat{1\\1}, \Vect{v}_2 = \xmat{1,-1}$, then their correspondi
 
 $\Vect{0} = 0\Vect{v}_1 + \hdots + 0\Vect{v}_k$, therefore, $\Vect{0} \in \TheSpan$. For any $\Vect{u}, \Vect{w} \in \TheSpan$, $\Vect{u} = \sum_{i=1}^ka_i\Vect{v}_i, \Vect{w} = \sum_{i=1}^kb_i\Vect{v}_i$, $\Vect{u} + \Vect{w} = \sum_{i=1}^k(a_i+b_i)\Vect{v}_i \in \TheSpan$. For any $\Vect{z} \in \TheSpan$, $\Vect{z} = \sum_{i=1}^kn_i\Vect{v}_i$, $c\Vect{z} = c\sum_{i=1}^kn_i\Vect{v}_i = \sum_{i=1}^kcn_i\Vect{v}_i \in \TheSpan$. Therefore, $\TheSpan$ is a subspace of $\mathbb{R}^n$. \rQED
 
-Assuming there exists a subspace $V$ of $\mathbb{R}^n$ such that $V \subset \TheSpan$ and $V \neq \TheSpan$. For any $\Vect{u} \in \TheSpan$, since $\Vect{v}_1, \hdots, \Vect{v}_k \in V$ and $\Vect{u} = \sum_{i=1}^ka_i\Vect{v}_i$ for some $a_1, \hdots, a_k$, $\Vect{u} \in V$. Therefore, $V \subset \TheSpan$, $V = \TheSpan$, which contradicts to the assumption. \rQED
+Assuming there exists a subspace $V$ of $\mathbb{R}^n$ such that $V \subset \TheSpan$, $\Vect{v}_1, \hdots, \Vect{v}_k \in V$, and $V \neq \TheSpan$. For any $\Vect{u} \in \TheSpan$, since $\Vect{v}_1, \hdots, \Vect{v}_k \in V$ and $\Vect{u} = \sum_{i=1}^ka_i\Vect{v}_i$ for some $a_1, \hdots, a_k$, $\Vect{u} \in V$. Therefore, $V \subset \TheSpan$, $V = \TheSpan$, which contradicts to the assumption. \rQED
 \end{exercise}
 
 \begin{exercise}{7}
