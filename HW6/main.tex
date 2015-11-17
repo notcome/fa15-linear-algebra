@@ -9,5 +9,131 @@
 \gotosection{2}{5}
 \subsection{Kernels, images, and the dimension formula}
 
+\begin{exercise}{1}
+\begin{enumerate}
+\item $A\Vect{v}_1 = \Vect{0}$, $\Vect{v}_1 \in \ker{A}$.
 
+$A\Vect{v}_2 = \xmat{2\\3\\3}$, $\Vect{v}_2 \notin \ker{a}$.
+
+$A\Vect{v}_3 = \Vect{0}$, $\Vect{v}_3 \in \ker{A}$.
+
+\item Since \FunSS{T}{\mathbb{R}^5}{\mathbb{R}^3}, $\Vect{w}_4$ has the right height to be in the kernel of $T$, while $\Vect{w}_1$ and $\Vect{w}_3$ has the right height to be in the image of $T$.
+$$\widetilde{T} = \xmat{1&0&0&2&1\\0&1&0&5&0\\0&0&1&1&-1}$$
+\begin{align*}
+  x_1 &= -2x_4 - x_5 \\
+  x_2 &= -5x_4 \\
+  x_3 &= -x_4 + x_5
+\end{align*}
+
+Let $x_4=1, x_5=0$, $\xmat{-2\\-5\\-1\\1\\0}$ is in the kernel of $T$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}{2}
+\begin{enumerate}
+\item False, should span $\mathbb{R}^m$.
+\item True.
+\item True.
+\item False.
+\item False, should be $n - m$.
+\item False, unless $T$ is also injective.
+\item False, unless $T$ is also injective.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}{3}
+\newcolumntype{L}{>{\centering\arraybackslash}m{4cm}}
+\newcolumntype{I}{>{\centering\arraybackslash}m{4.2cm}}
+\begin{center}
+\begin{tabular}{|L|I|c|}
+\hline
+rank $T$ & nullity $T$ & rank $T$ + nullity $T$\\
+\hline
+dim image $T$ & dim ker $T$ & dim domain $T$ \\
+\hline
+\# pivotal columns of $T$ & \# nonpivotal columns of $T$ & \\
+\hline
+\# linearly independent columns of $T$ && \\
+\hline
+\end{tabular}
+\end{center}
+
+`\#' stands for ``no. of".
+\end{exercise}
+
+\def \img{\mathrm{img}}
+
+\begin{exercise}{5}
+\begin{enumerate}
+\item $T(\Vect{0}) = \Vect{0}$, therefore $\Vect{0} \in \ker T$.
+  For any $\Vect{u}_1, \Vect{u}_2 \in \ker T$, $T(\Vect{u}_1 + \Vect{u}_2) = T(\Vect{u}_1) + T(\Vect{u}_2) = \Vect{0} + \Vect{0} = \Vect{0}$, therefore, $\Vect{u}_1 + \Vect{u}_2 \in \ker T$.
+  For any $\Vect{u} \in \ker T$, $c \in \mathbb{R}$, $T(c\Vect{u}) = c T(\Vect{u}) = c\Vect{0} = \Vect{0}$, therefore, $c\Vect{u} \in \ker T$.
+  Hence, $\ker T$ is a subspace of $\mathbb{R}^n$. \rQED
+
+\item $T(\Vect{0}) = \Vect{0}$, therefore $\Vect{0} \in \img T$. For any $\Vect{u}_1 = T(\Vect{v}_1), \Vect{u}_2 = T(\Vect{v}_2) \in \img T$, $\Vect{u}_1 + \Vect{u}_2 = T(\Vect{v}_1) + T(\Vect{v}_2) = T(\Vect{v}_1 + T\Vect{v}_2) \in \img T$. For any $\Vect{u} = T(\Vect{v}) \in \img T$, $c \in \mathbb{R}$, $c\Vect{u} = cT(\Vect{v}) = T(c\Vect{v}) \in \img T$. Therefore, $\img T$ is a subspace of $\mathbb{R}^m$. \rQED
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}{6}
+\begin{enumerate}
+\item $A = \xmat{1&1&3\\2&2&6}$, $\widetilde{A} = \xmat{1&1&3\\0&0&0}$. A basis for the image: $\xmat{1\\2}$. A basis for the kernel: $\xmat{-1\\1\\0}$, $\xmat{-3\\0\\1}$.
+
+\item $A = \xmat{1&2&3\\-1&1&1\\-1&4&5}$, $\widetilde{A} = \xmat{1&0&1/3\\0&1&4/3\\0&0&0}$. A basis for the image: $\xmat{1&-1&-1}$, $\xmat{2\\1\\4}$. A basis for the kernel: $\xmat{-1/3\\-4/3\\1}$.
+
+\item $A = \xmat{1&1&1\\1&2&3\\2&3&4}$, $\widetilde{A} = \xmat{1&0&-1\\0&1&2\\0&0&0}$. A basis for the image: $\xmat{1\\1\\2}$, $\xmat{1\\2\\3}$. A basis for the kernel: $\xmat{1\\-2\\1}$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}{8}
+False.
+
+Let $[f]$ be a matrix with all entries being zero. Then, for any $\Vect{v} \in \mathbb{R}^m$, $f(\Vect{v}) = 0$, therefore, $\ker f = \mathbb{R}^m$. Let $g$ be a non-surjective function, i.e. $n < m$, then $\img g \subset \mathbb{R}^m$ and $\img g \neq \mathbb{R}^m$. In other words, $\img g$ can only be a proper subset of $\ker g$. \rQED
+\end{exercise}
+
+\begin{exercise}{9}
+\begin{enumerate}
+\item $T(a+bx+cx^2) = bx+4cx^2$, $[T] = \cmat{0&0&0\\0&1&0\\0&0&4}$.
+\item Let $A = [T]$, $\widetilde{A} = \cmat{0&1&0\\0&0&1\\0&0&0}$. The second and the third columns (pivotal columns) of $A$ then form the basis of $\img T$, namely $\cmat{0\\1\\0}$ and $\cmat{0\\0\\4}$. $\dim{\ker T} = 1$, and a basis of $\ker T$ is $\cmat{1\\0\\0}$, which can be derived from either the method mentioned in the textbook or the fact that only constant polynomials are in the kernel.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}{10}
+Fix $k$, for the sake of clarity.
+
+The problem can be seen as finding a matrix $A \in M_{(1,k+1)}$ such that:
+$$\xmat{c_0 & \hdots 
+& c_k}\cmat{p(0)\\\vdots\\p(k)} = \int^k_0p(t)dt$$
+
+Let's call the vector a polynomial vector. In the subsection of ``Interpolation and the dimension formula", the textbook has proved that for each polynomial $p \in P_k$, there exists one and only one such polynomial vector $\Vect{v} \in \mathbb{R}^{k+1}$, and for each polynomial vector $\Vect{v} \in \mathbb{R}^{k+1}$, there exists one and only one $p \in P_k$.\footnote{Formula 2.5.15, and ``in particular, $T_k$ is invertible}
+
+For $A$ to be exists, the relation between $\cmat{p(0)\\\vdots\\p(k)}$ and $\int^k_0p(t)dt$ must be linear, because there is a bijective relation between matrix and linear transformation. To put it more explicit, \FunSS{T}{\mathbb{R}^{k+1}}{\mathbb{R}} such that:
+
+$$T(\cmat{p(0)\\\vdots\\p(k)}) = \int^k_0p(t)dt$$
+
+must be a linear transformation.
+
+Let's denote the polynomial vector of a polynomial $p$ as $\Vect{p}$. For any two polynomials $p, q \in P_k$ such that,
+$p = \sum_{i=0}^kp_ix^i$,
+$q = \sum_{i=0}^kq_ix^i$.
+The sum of $p$ and $q$, denoted as $+_{p,q}$, is
+$\sum_{i=0}^k(p_i+q_i)x^i$. It's obvious that for each $x \in \mathbb{R}$, $+_{p,q}(x) = p(x) + q(x)$. Then we have:
+$$\Vect{v}_{+_{p,q}} = \sum_{i=0}^ke_i(p_i+q_i)i^i = \sum_{i=0}^ke_ip_ii^i + \sum_{i=0}^ke_iq_ii^i = \Vect{v}_p + \Vect{v}_q$$
+where $e_i$ is a standard basis vector, and:
+$$T(\Vect{v}_{+_{p,q}})=\int^k_0+_{p,q}(t)dt=\int^k_0p(t)dt+\int^k_0p(t)dt = T(\Vect{v}_p) + T(\Vect{v}_q)$$
+
+Let $*_{c,p} = \sum_{i=0}^k cp_ix^i$ for any real number $c$. It is clear that $*_{c,p} = c\sum_{i=0}^k p_ix^i$, or $*_{c,p}(x) = cp(x)$ for each $x \in \mathbb{R}$. Then we have:
+$$\Vect{v}_{*_{c,p}} = c\Vect{v}_p$$
+, and:
+$$T(\Vect{v}_{*_{c,p}}) = \int^k_0*_{c,p}(t)dt = \int^k_0cp(t)dt = c\int^k_0p(t)dt = T(\Vect{v}_p)$$
+
+Therefore, $T$ is indeed a linear transformation, $A = [T]$, and $c_0,\hdots,c_k$ do exist. \rQED
+\end{exercise}
+
+\begin{exercise}{15}
+Since $AB$ is invertible, the linear transformation $T_{AB}$ is bijective. Then, due to $T_{AB} = T_A \circ T_B$, $T_A$ has to be surjective, otherwise there exists a $\Vect{v} \in \mathbb{R}^n$ such that $T_A(\Vect{x}) = \Vect{v}$ has no solution, which means $T_A \circ T_B(\Vect{x}) = \Vect{v}$ also has no solution, contradicting the surjectiveness of $T_{AB}$. Because $T_A$ is surjective and $A$ is square, $A$ is invertible.
+
+Now assume that $T_B$ is not injective. We can find $\Vect{v}_1, \Vect{v}_2 \in \mathbb{R}^n$ such that $T_B(\Vect{v}_1) = T_B(\Vect{v}_2)$. As a result, $T_A \circ T_B(\Vect{v}_1) = T_A \circ T_B(\Vect{v}_2)$, which contradicts the injectiveness of $T_{AB}$. Therefore, $T_B$ is injective, and since $B$ is square, $B$ is invertible.
+
+This completes the proof. \rQED
+\end{exercise}
 \end{document}
