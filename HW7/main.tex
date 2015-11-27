@@ -1,0 +1,41 @@
+\documentclass{article}
+\input{../general}
+\usepackage{enumerate}
+
+\MakeTitle{7}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}[1.]
+\item
+First, we prove that $\vec{w}_i$ is orthogonal to $\vec{w}_1, \hdots, 
+\vec{w}_{i-1}$ for $i \leq p$. Rewrite the definition of $w_i$ in terms of
+the projection function:
+\newcommand \ProjW[1]{\mathrm{proj}_{\vec{w}_{#1}}(\vec{v}_i)}
+$$\vec{w}_i = \vec{v}_i - \sum_j\ProjW{j}$$
+For some $j < i$:
+$$
+\begin{aligned}
+(\vec{v}_i - \ProjW{j}) \cdot \vec{w}_j &= 0 \\
+(\vec{w}_i + \sum_{k \neq j}\ProjW{k}) \cdot \vec{w}_j &= 0 \\
+\vec{w}_i \cdot \vec{w}_j + \sum_{k \neq j} \ProjW{k} \cdot \vec{w}_j &= 0
+\end{aligned}
+$$
+From the induction hypothesis we know that $\vec{w}_k \bot \vec{w}_j$ for
+$k \neq j, k < i$, so $\ProjW{k} \cdot \vec{w}_j = 0$ for each such $k$.
+Therefore, $\vec{w}_i \bot \vec{w}_j$.
+
+Hence we have proven that $\vec{w}_i$ is orthogonal to $\vec{w}_1, \hdots,
+\vec{w}_{i-1}$ for $i \leq p$. From this is trivial to see that $\vec{w}_1,
+\hdots, \vec{w}_p$ is orthogonal to each other. In other words, they are
+linearly independent\footnote{Textbook, \textbf{Proposition 2.4.17}}.
+
+Since $\{\vec{v}_1, \hdots, \vec{v}_p\}$ is a basis of $E$, $E$'s maximal
+linearly independent sets should have exactly $p$ elements. Therefore,
+$\{\vec{w}_1, \hdots, \vec{w}_p\}$ forms a maximal linearly independent set of
+$E$, and it is indeed an orthogonal basis of $E$. \rQED
+
+\item
+\end{enumerate}
+\end{document}
