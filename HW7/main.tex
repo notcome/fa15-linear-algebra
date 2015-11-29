@@ -37,5 +37,15 @@ $\{\vec{w}_1, \hdots, \vec{w}_p\}$ forms a maximal linearly independent set of
 $E$, and it is indeed an orthogonal basis of $E$. \rQED
 
 \item
+First, we prove the existence of such decomposition, which is equivalent to the statement that the union of one of  $E$'s basis and one of $E^{\bot}$'s basis is a basis for $R^n$. We only need to prove this is true for some two bases, as the number of vectors in a basis for the same subspace is invariant. We pick an orthogonal basis for $E$ and another one for $E^{\bot}$. Assume that we still need some more vectors to form a basis for $R^n$. Apply the Gram--Schmidt process to these vectors, but ensure we first process vectors of the bases of $E$ and $E^{\top}$. In this way, since vectors of the two bases are orthogonal to each other, the process takes no effect on these vectors---the subtracted vectors, or the projections, are always zero. After the process we get an orthogonal basis for $R^n$, with some of vectors forming a basis for $E$, some for $E^{\bot}$, and some other vectors. But since those other vectors are orthogonal to vectors of a basis for $E$, so they should be elements of $E^{\bot}$. Thus we get a contradiction, and we can safely say that an orthogonal decomposition always exist for vectors in $R^n$.
+
+Next, we prove the uniqueness of such decomposition. Assume that we have $\vec{v} = \vec{x}_1 + \vec{y}_1 = \vec{x}_2 + \vec{y}_2$, where $\vec{x}_1, \vec{x}_2 \in E$, $\vec{y}_1, \vec{y}_2 \in E^{\bot}$, $\vec{x}_1 \neq \vec{x}_2$, and $\vec{y}_1 \neq \vec{y}_2$.
+$$
+\begin{aligned}
+\vec{x}_1 + \vec{y}_1 &= \vec{x}_2 + \vec{y}_2 \\
+\vec{x}_1 - \vec{x}_2 &= \vec{y}_2 - \vec{y}_1 \\
+\end{aligned}
+$$
+The intersection of $E$ and $E^{\top}$ is $\{\vec{0}\}$, therefore both sides equal to the zero vector, or $\vec{x}_1 = \vec{x}_2$ and $\vec{y}_1 = \vec{y}_2$, hence another contradiction. As a result, orthogonal decomposition is unique. \rQED
 \end{enumerate}
 \end{document}
