@@ -37,7 +37,7 @@ $\{\vec{w}_1, \hdots, \vec{w}_p\}$ forms a maximal linearly independent set of
 $E$, and it is indeed an orthogonal basis of $E$. \rQED
 
 \item
-First, we prove the existence of such decomposition, which is equivalent to the statement that the union of one of  $E$'s basis and one of $E^{\bot}$'s basis is a basis for $R^n$. We only need to prove this is true for some two bases, as the number of vectors in a basis for the same subspace is invariant. We pick an orthogonal basis for $E$ and another one for $E^{\bot}$. Assume that we still need some more vectors to form a basis for $R^n$. Apply the Gram--Schmidt process to these vectors, but ensure we first process vectors of the bases of $E$ and $E^{\top}$. In this way, since vectors of the two bases are orthogonal to each other, the process takes no effect on these vectors---the subtracted vectors, or the projections, are always zero. After the process we get an orthogonal basis for $R^n$, with some of vectors forming a basis for $E$, some for $E^{\bot}$, and some other vectors. But since those other vectors are orthogonal to vectors of a basis for $E$, so they should be elements of $E^{\bot}$. Thus we get a contradiction, and we can safely say that an orthogonal decomposition always exist for vectors in $R^n$.
+First, we prove the existence of such decomposition, which is equivalent to the statement that the union of one of  $E$'s basis and one of $E^{\bot}$'s basis is a basis for $R^n$. We pick an orthogonal basis for $E$ and another one for $E^{\bot}$. Assume that we still need some more vectors to form a basis for $R^n$. Apply the Gram--Schmidt process to these vectors, but ensure we first process vectors of the bases of $E$ and $E^{\top}$. In this way, since vectors of the two bases are orthogonal to each other, the process has no effect on these vectors---the subtracted vectors, or the projections, are always zero. After the process we get an orthogonal basis for $R^n$, with some of vectors forming a basis for $E$, some for $E^{\bot}$, and some other vectors. However, since those other vectors are orthogonal to vectors of a basis for $E$, they should be elements of $E^{\bot}$. Thus we get a contradiction, and we can safely say that an orthogonal decomposition always exist for vectors in $R^n$.
 
 Next, we prove the uniqueness of such decomposition. Assume that we have $\vec{v} = \vec{x}_1 + \vec{y}_1 = \vec{x}_2 + \vec{y}_2$, where $\vec{x}_1, \vec{x}_2 \in E$, $\vec{y}_1, \vec{y}_2 \in E^{\bot}$, $\vec{x}_1 \neq \vec{x}_2$, and $\vec{y}_1 \neq \vec{y}_2$.
 $$
@@ -48,19 +48,19 @@ $$
 $$
 The intersection of $E$ and $E^{\top}$ is $\{\vec{0}\}$, therefore both sides equal to the zero vector, or $\vec{x}_1 = \vec{x}_2$ and $\vec{y}_1 = \vec{y}_2$, hence another contradiction. As a result, orthogonal decomposition is unique. \rQED
 
-\item 
-First, we prove the following holds true for any vector space $\mathbb{R}^n$:
-$$\vec{x}^2 + \vec{y}^2 + 2\vec{x}\cdot\vec{y} = (\vec{x} + \vec{y})^2$$
-where $\vec{x}, \vec{y} \in \mathbb{R}^2$. Let $\vec{x} = (x_1, \hdots, x_n), \vec{y} = (y_1, \hdots, y_n)$, and rewrite the above equation:
-$$(x_1^2 + y_1^2 + 2x_1y_1, \hdots, x_n^2 + y_n^2 + 2x_ny_n) = ((x_1 + y_1)^2, \hdots, (x_n+y_n)^2)$$
-which is obviously true, since $(a+b)^2 = a^2+b^2+2ab$ holds true for any two real numbers. Particularly, if $\vec{x} \cdot \vec{y} = 0$, we have the Pythagorean theorem:
-$$\vec{x}^2 + \vec{y}^2 = (\vec{x} + \vec{y})^2$$
-
-. One of its implication (*) is $|\vec{x}| \leq |\vec{x} + \vec{y}|$, when $\vec{x}$ and $\vec{y}$ are orthogonal to each other.
+\item
+When $\vec{x}, \vec{y} \in \mathbb{R}^n$ is orthogonal to each other, we have:
+\begin{align*}
+\vec{x}^2 + \vec{y}^2 + 2\vec{x}\cdot\vec{y} &= (\vec{x} + \vec{y})^2\\
+\vec{x}^2 + \vec{y}^2 + 2 \times 0 &= (\vec{x} + \vec{y})^2\\
+\vec{x}^2 + \vec{y}^2 &= (\vec{x} + \vec{y})^2 \\
+\vec{x}^2 &\leq (\vec{x} + \vec{y})^2 \\
+|\vec{x}| &\leq |\vec{x} + \vec{y}|
+\end{align*}
 
 \newcommand \vecb[1]{\boldsymbol{\mathrm{#1}}}
 
-Back to the question. $(\vecb{y} - \vecb{\hat{y}}) + (\vecb{\hat{y}} - \vecb{v}) = \vecb{y} - \vecb{v}$. Note that $\vecb{y} - \vecb{\hat{y}} \in E^{\bot}$, $\vecb{\hat{y}} - \vecb{v} \in E$, so these two vectors are orthogonal to each other other. Then, we can apply (*) and get $|\vecb{y} - \vecb{\hat{y}}| \leq \vecb{y} - \vecb{v}$. \rQED
+Back to the question. $(\vecb{y} - \vecb{\hat{y}}) + (\vecb{\hat{y}} - \vecb{v}) = \vecb{y} - \vecb{v}$. Note that $\vecb{y} - \vecb{\hat{y}} \in E^{\bot}$, $\vecb{\hat{y}} - \vecb{v} \in E$, so these two vectors are orthogonal to each other other. Then, we can apply the above inequality and obtain $|\vecb{y} - \vecb{\hat{y}}| \leq \vecb{y} - \vecb{v}$. \rQED
 
 \item
 $E$ is the image of this matrix $A = \xmat{
@@ -86,10 +86,34 @@ $$
 $$
 
 \item
-Problem 5
+\begin{align*}
+\vecb{x}^{*}
+&= (A^{\top}A)^{-1}A^{top}\vecb{b} \\
+&= (A^{\top}A)^{-1} \xmat{20\\12\\12} \\
+&= \xmat{4&8&10\\10&26&38\\8&20&26}^{-1} \xmat{20\\12\\12} \\
+&= \frac{1}{16}
+\xmat{21 & -11 & 2 \\
+     -11 &  13 & -6\\
+       2 &  -6 & 4}\xmat{20\\12\\12} \\
+&= \xmat{10\\-6\\2}
+\end{align*}
 
 \item
-Problem 6
+Calculate the normal equation $A^{\top}A\vecb{x} = A^{\top}\vecb{b}$:
+$$
+\xmat{4&8&12\\8&20&32\\12&32&52} \vecb{x} = \xmat{12\\12\\12}
+$$
+
+Row reduce the augumented matrix and we can obtain $[\widetilde{A}|\widetilde{\vecb{b}}]$:
+$$\xmat{1&0&-1&9\\0&1&2&-3\\0&0&0&0}$$
+
+Let $\vecb{x} = \xmat{x\\y\\z}$, it should obey the following relations:
+\begin{align*}
+x-z&=9\\
+y+2z&=-3
+\end{align*}
+
+The lack of a unique least-squares solution is because $A$'s columns are not linearly independent. Double the second column, add it with the first one, and we can obtain the third one.
 
 \item
 \begin{enumerate}
