@@ -47,5 +47,62 @@ $$
 \end{aligned}
 $$
 The intersection of $E$ and $E^{\top}$ is $\{\vec{0}\}$, therefore both sides equal to the zero vector, or $\vec{x}_1 = \vec{x}_2$ and $\vec{y}_1 = \vec{y}_2$, hence another contradiction. As a result, orthogonal decomposition is unique. \rQED
+
+\item 
+First, we prove the following holds true for any vector space $\mathbb{R}^n$:
+$$\vec{x}^2 + \vec{y}^2 + 2\vec{x}\cdot\vec{y} = (\vec{x} + \vec{y})^2$$
+where $\vec{x}, \vec{y} \in \mathbb{R}^2$. Let $\vec{x} = (x_1, \hdots, x_n), \vec{y} = (y_1, \hdots, y_n)$, and rewrite the above equation:
+$$(x_1^2 + y_1^2 + 2x_1y_1, \hdots, x_n^2 + y_n^2 + 2x_ny_n) = ((x_1 + y_1)^2, \hdots, (x_n+y_n)^2)$$
+which is obviously true, since $(a+b)^2 = a^2+b^2+2ab$ holds true for any two real numbers. Particularly, if $\vec{x} \cdot \vec{y} = 0$, we have the Pythagorean theorem:
+$$\vec{x}^2 + \vec{y}^2 = (\vec{x} + \vec{y})^2$$
+
+. One of its implication (*) is $|\vec{x}| \leq |\vec{x} + \vec{y}|$, when $\vec{x}$ and $\vec{y}$ are orthogonal to each other.
+
+\newcommand \vecb[1]{\boldsymbol{\mathrm{#1}}}
+
+Back to the question. $(\vecb{y} - \vecb{\hat{y}}) + (\vecb{\hat{y}} - \vecb{v}) = \vecb{y} - \vecb{v}$. Note that $\vecb{y} - \vecb{\hat{y}} \in E^{\bot}$, $\vecb{\hat{y}} - \vecb{v} \in E$, so these two vectors are orthogonal to each other other. Then, we can apply (*) and get $|\vecb{y} - \vecb{\hat{y}}| \leq \vecb{y} - \vecb{v}$. \rQED
+
+\item
+$E$ is the image of this matrix $A = \xmat{
+-1& 3& 2\\
+ 3&-4& 1\\
+ 1&-1& 2\\
+ 1&-2&-1}$. $\widetilde{A} = \xmat{1&0&0\\0&1&0\\0&0&1\\0&0&0}$.
+Since each column has a pivot, the three vectors form a basis. Name them 
+$\vecb{v}_1, \vecb{v}_2, \vecb{v}_3$ and apply the Gram--Schmidt process:
+$$\vecb{w}_1 = \vecb{v}_1 = \xmat{-1\\3\\1\\1} \quad
+\vecb{w}_2 = \vecb{v}_2 - \frac{\vecb{v}_2 \cdot \vecb{w}_1}{\vecb{w}_1 \cdot \vecb{w}_1}\vecb{w}_1 = \xmat{5/3\\0\\1/3\\-2/3}$$$$
+\vecb{w}_3 = \vecb{v}_3 - \frac{\vecb{v}_3 \cdot \vecb{w}_2}{\vecb{w}_2 \cdot \vecb{w}_2}\vecb{w}_2 - \frac{\vecb{v}_3 \cdot \vecb{w}_1}{\vecb{w}_1 \cdot \vecb{w}_1}\vecb{w}_1
+% 1/6 w_1
+% 7/5 w_2
+= \xmat{-1/6\\1/2\\41/30\\-7/30}
+$$
+
+After normalization:
+$$
+\vecb{w}_1 = \xmat{-1\\3\\1\\1},\quad
+\vecb{w}_2 = \xmat{5\\0\\1\\-2},\quad
+\vecb{w}_3 = \xmat{-5\\15\\41\\-7}
+$$
+
+\item
+Problem 5
+
+\item
+Problem 6
+
+\item
+\begin{enumerate}
+\item First we prove that $\ker A \subset \ker A^{\top}A$. For any $\vec{v} \in \ker A$, we have $(A^{\top}A)\vec{v} = A^{\top}(A\vec{v}) = A^{\top}\vec{0} = \vec{0}$, so $\vec{v} \in \ker A^{\top}A$.
+
+Before moving on to prove that $\ker A^{\top}A \subset \ker A$, let's prove that the intersection between a matrix $M$'s row space $V$ and its kernel is $\{\vec{0}\}$. For a vector $\vec{v}$ being in the kernel of $M$, its inner dot products with every row of $M$ must be $\vec{0}$, namely $\vec{v}$ must be orthogonal to every row of $M$. Since $V$ is the span of all rows of $M$, $\vec{v}$ must be orthogonal to every vector in $V$. Therefore, we have proved that $M$'s kernel is a subset of $V^{\bot}$. Since $\vec{0}$ is an element of $M$'s kernel, $\ker M \cap V = \{\vec{0}\}$.
+
+Let $B = A^{\top}$ and $B^{\top} = A$, we have $\ker A^{\top}A = \ker BB^{\top} = \{\vec{v} \in \mathbb{R}^n : B(B^{\top}\vec{v}) = \vec{0}\}$. For any $\vec{v} \in \ker A^{\top}A$, assume that $\vec{v} \notin \ker A$. Then, we have $B^{\top} \vec{v} \neq \vec{0}$ and $B(B^{\top}\vec{v}) = \vec{0}$, namely $B^{\top}\vec{v}$ is in both the row space and the kernel of $B$ and it is not $\vec{0}$, a contradiction to what we have proved. Therefore, $\ker A^{\top}A \subset \ker A$, and consequently, $\ker A = \ker A^{\top}A$. \rQED
+
+\item
+For any square matrix $M$, $\ker M = \{\vec{0}\}$ iff $M$ is invertible. If $\ker M = \{\vec{0}\}$, then each column of $M$ is linearly independent, and $M\vec{x} = \vec{y}$ has a unique solution. The reverse proof is similar.
+
+If $\ker A = \{\vec{0}\}$, then $\ker A^{\top}A = \ker A = \{\vec{0}\}$, therefore $A^{\top}A$ is invertible. If $A^{\top}A$ is invertible, then $\ker A^{\top}A = \{\vec{0}\}$, and $\ker A = \ker A^{\top}A = \{\vec{0}\}$. \rQED
+\end{enumerate}
 \end{enumerate}
 \end{document}
