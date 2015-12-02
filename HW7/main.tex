@@ -100,7 +100,7 @@ $$
 \item
 \begin{align*}
 \vecb{x}^{*}
-&= (A^{\top}A)^{-1}A^{top}\vecb{b} \\
+&= (A^{\top}A)^{-1}A^{\top}\vecb{b} \\
 &= (A^{\top}A)^{-1} \xmat{20\\12\\12} \\
 &= \xmat{4&8&10\\10&26&38\\8&20&26}^{-1} \xmat{20\\12\\12} \\
 &= \frac{1}{16}
@@ -119,11 +119,10 @@ $$
 Row reduce the augumented matrix and we can obtain $[\widetilde{A}|\widetilde{\vecb{b}}]$:
 $$\xmat{1&0&-1&9\\0&1&2&-3\\0&0&0&0}$$
 
-Let $\vecb{x} = \xmat{x\\y\\z}$, it should obey the following relations:
-\begin{align*}
-x-z&=9\\
-y+2z&=-3
-\end{align*}
+So the vector should have the form:
+$$
+\xmat{9\\-3\\0} + x_3\xmat{1\\-2\\1}
+$$
 
 The lack of a unique least-squares solution is because $A$'s columns are not linearly independent. Double the second column, add it with the first one, and we can obtain the third one.
 
