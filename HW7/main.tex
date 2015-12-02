@@ -4,6 +4,8 @@
 
 \MakeTitle{7}
 
+\newcommand \vecb[1]{\boldsymbol{\mathrm{#1}}}
+
 \begin{document}
 \maketitle
 
@@ -46,7 +48,19 @@ $$
 \vec{x}_1 - \vec{x}_2 &= \vec{y}_2 - \vec{y}_1 \\
 \end{aligned}
 $$
-The intersection of $E$ and $E^{\top}$ is $\{\vec{0}\}$, therefore both sides equal to the zero vector, or $\vec{x}_1 = \vec{x}_2$ and $\vec{y}_1 = \vec{y}_2$, hence another contradiction. As a result, orthogonal decomposition is unique. \rQED
+The intersection of $E$ and $E^{\top}$ is $\{\vec{0}\}$, therefore both sides equal to the zero vector, or $\vec{x}_1 = \vec{x}_2$ and $\vec{y}_1 = \vec{y}_2$, hence another contradiction. As a result, orthogonal decomposition is unique.
+
+For the ``in fact" part. This is equivalent to prove that $\vecb{y} - \hat{\vecb{y}}$
+is orthogonal to every vector in $E$. We can prove this by multiplying $\vecb{w}_i$ to
+$\vecb{y} - \hat{\vecb{y}}$ for every $i$ from $1$ to $p$:
+\begin{align*}
+(\vecb{y} - \hat{\vecb{y}}) \cdot \vecb{w}_i
+&= \vecb{y} \cdot \vecb{w}_i - (\sum_j \frac{\vecb{y}\cdot\vecb{w}_j}{\vecb{w}_j\cdot\vecb{w}_j}\vecb{w}_j) \cdot \vecb{w}_i \\
+&= \vecb{y} \cdot \vecb{w}_i - \frac{\vecb{y}\cdot\vecb{w}_i}{\vecb{w}_i\cdot\vecb{w}_i} \vecb{w}_i \cdot \vecb{w}_i \\
+&= \vecb{y} \cdot \vecb{w}_i - \vecb{y} \cdot \vecb{w}_i \\
+&= 0
+\end{align*}
+So they are indeed orthogonal. \rQED
 
 \item
 When $\vec{x}, \vec{y} \in \mathbb{R}^n$ is orthogonal to each other, we have:
@@ -57,8 +71,6 @@ When $\vec{x}, \vec{y} \in \mathbb{R}^n$ is orthogonal to each other, we have:
 \vec{x}^2 &\leq (\vec{x} + \vec{y})^2 \\
 |\vec{x}| &\leq |\vec{x} + \vec{y}|
 \end{align*}
-
-\newcommand \vecb[1]{\boldsymbol{\mathrm{#1}}}
 
 Back to the question. $(\vecb{y} - \vecb{\hat{y}}) + (\vecb{\hat{y}} - \vecb{v}) = \vecb{y} - \vecb{v}$. Note that $\vecb{y} - \vecb{\hat{y}} \in E^{\bot}$, $\vecb{\hat{y}} - \vecb{v} \in E$, so these two vectors are orthogonal to each other other. Then, we can apply the above inequality and obtain $|\vecb{y} - \vecb{\hat{y}}| \leq \vecb{y} - \vecb{v}$. \rQED
 
